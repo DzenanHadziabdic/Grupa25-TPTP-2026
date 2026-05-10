@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obnovljivi Izvori Energije | Zelena Budućnost</title>
+    <link rel="stylesheet" href="css/tptpstil.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">ZelenaEnergija</div>
+        <nav class="glavna-nav">
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="sadrzaj.html">Detalji</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="https://github.com/tvoj-username/GrupaX-TPTP-2026" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+        <button id="dark-mode-toggle">🌙 Mod</button>
+    </header>
+
+    <div class="layout-container">
+        <nav class="side-nav">
+            <h3>Filteri</h3>
+            <ul>
+                <li><a href="#" onclick="filtriraj('svi')">Svi izvori</a></li>
+                <li><a href="#" onclick="filtriraj('sunce')">Solarna energija</a></li>
+                <li><a href="#" onclick="filtriraj('vjetar')">Energija vjetra</a></li>
+                <li><a href="#" onclick="filtriraj('voda')">Hidroenergija</a></li>
+                <li><a href="#" onclick="filtriraj('biomasa')">Biomasa</a></li>
+            </ul>
+        </nav>
+
+        <main id="kartice-kontejner">
+            <article class="kartica" data-kategorija="sunce">
+                <img src="images/solarni-paneli.jpg" alt="Solarni paneli na krovu kuće">
+                <h2>Solarna Energija</h2>
+                <p>Iskorištavanje snage sunca za čistu električnu energiju.</p>
+                <a href="sadrzaj.html#solarni" class="btn">Saznaj više</a>
+            </article>
+
+            <article class="kartica" data-kategorija="vjetar">
+                <img src="images/vjetroelektrane.jpg" alt="Vjetroelektrane na brdu">
+                <h2>Energija Vjetra</h2>
+                <p>Vjetroturbine pretvaraju kinetičku energiju u struju.</p>
+                <a href="sadrzaj.html#vjetar" class="btn">Saznaj više</a>
+            </article>
+
+            </main>
+
+        <aside>
+            <h3>Lokacije u TK</h3>
+            <p>Pogledajte lokacije vjetroparkova u Tuzlanskom kantonu.</p>
+            <iframe src="https://www.google.com/maps/embed?..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TPTP Projekat. Članovi: Ime Prezime 1, Ime Prezime 2, Ime Prezime 3.</p>
+    </footer>
+
+    <script src="js/tptpskripte.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+// Dokumentacija AI upotrebe - Kriterij 10
+// Funkciju za filtriranje sam logički postavio uz pomoć Claude-a
+// Razumijem da: querySelectorAll bira sve elemente, a .style.display ih sakriva/prikazuje
+
+function filtriraj(kategorija) {
+    const kartice = document.querySelectorAll('.kartica');
+    
+    kartice.forEach(kartica => {
+        if (kategorija === 'svi' || kartica.dataset.kategorija === kategorija) {
+            kartica.style.display = 'block'; // Prikaži
+        } else {
+            kartica.style.display = 'none'; // Sakrij
+        }
+    });
+}
+
+// Dark mode toggle sa LocalStorage - Kriterij 8
+const toggleBtn = document.getElementById('dark-mode-toggle');
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
