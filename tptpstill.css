@@ -355,3 +355,45 @@ textarea {
     margin-bottom: var(--razmak-l);
     animation: fadeInUp 0.4s ease;
 }
+/* --- Logo, navigacija i footer --- */
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+.nav-github {
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  border-radius: 6px;
+}
+
+.dark-toggle {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radijus);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--tranzicija);
+}
+
+.dark-toggle:hover { background: rgba(255,255,255,0.2); }
+.dark-toggle:focus { outline: 2px solid var(--boja-akcent); }
+
+.footer-authors {
+  font-size: 0.82rem;
+}
+
+.footer-copy {
+  width: 100%;
+  font-size: 0.75rem;
+  text-align: center;
+  opacity: 0.5;
+  margin-top: var(--razmak-s);
+  font-family: var(--font-naslov);
+}
