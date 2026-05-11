@@ -1,21 +1,18 @@
 /* --- CSS VARIJABLE (min. 5) --- */
+/* ===========================================
+   ZAJEDNIČKI STILOVI (tptpstil.css)
+   =========================================== */
+
+/* --- VARIJABLE --- */
 :root {
     --boja-primarna: #1a5c38;
-    /* tamna zelena */
     --boja-akcent: #2fb862;
-    /* svijetla zelena */
     --boja-pozadina: #f4f7f4;
-    /* bijelo-zelena pozadina */
     --boja-tekst: #1e2a22;
-    /* tamni tekst */
     --boja-header: #0d3a22;
-    /* header pozadina */
     --boja-kartica: #ffffff;
-    /* bijela kartica */
     --boja-border: #d0e4d7;
-    /* granica elemenata */
     --boja-footer: #0d3a22;
-    /* footer */
     --font-naslov: 'Montserrat', sans-serif;
     --font-tijelo: 'Source Serif 4', serif;
     --razmak-s: 0.5rem;
@@ -25,6 +22,27 @@
     --radijus: 8px;
     --sjena: 0 4px 20px rgba(0, 0, 0, 0.08);
     --tranzicija: 0.25s ease;
+}
+
+/* --- TAMNI MOD --- */
+body.dark {
+    --boja-primarna: #2fb862;
+    --boja-akcent: #5be08a;
+    --boja-pozadina: #0f1a14;
+    --boja-tekst: #e8f5ee;
+    --boja-header: #071510;
+    --boja-kartica: #162410;
+    --boja-border: #2a4a32;
+    --boja-footer: #071510;
+}
+
+/* --- RESET & OSNOVA --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -39,6 +57,16 @@ body {
     transition: background-color var(--tranzicija), color var(--tranzicija);
 }
 
+a {
+    text-decoration: none;
+    transition: color var(--tranzicija);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- HEADER --- */
 header {
     background: var(--boja-header);
     position: sticky;
@@ -53,50 +81,29 @@ header {
     padding: 0 var(--razmak-l);
     height: 70px;
     display: flex;
-    /* FLEXBOX – zahtjev */
     align-items: center;
-    gap: var(--razmak-l);
+    justify-content: space-between;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: var(--razmak-s);
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.logo-icon {
-    font-size: 1.8rem;
-    animation: pulse 3s ease-in-out infinite;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
 }
 
 .logo-main {
     font-family: var(--font-naslov);
     font-weight: 900;
-    font-size: 1.1rem;
-    color: #ffffff;
-    line-height: 1.1;
+    color: #fff;
 }
 
 .logo-sub {
     font-size: 0.65rem;
     color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.04em;
-}
-
-.main-nav {
-    margin-left: auto;
 }
 
 .main-nav ul {
     display: flex;
-    /* FLEXBOX */
     gap: var(--razmak-m);
     align-items: center;
 }
@@ -104,45 +111,18 @@ header {
 .main-nav a {
     font-family: var(--font-naslov);
     font-size: 0.85rem;
-    font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
     padding: 0.4rem 0.7rem;
-    border-radius: var(--radijus);
-    transition: color var(--tranzicija), background var(--tranzicija);
-    letter-spacing: 0.03em;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
+.main-nav a.active,
+.main-nav a:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.12);
-}
-
-.nav-github {
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Dark toggle */
-.dark-toggle {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    padding: 0.4rem 0.7rem;
     border-radius: var(--radijus);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background var(--tranzicija);
-    flex-shrink: 0;
 }
 
-.dark-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.dark-toggle:focus {
-    outline: 2px solid var(--boja-akcent);
-}
-
+/* --- MOBILNA NAVIGACIJA --- */
 .hamburger {
     display: none;
     background: none;
@@ -150,14 +130,12 @@ header {
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
-    flex-shrink: 0;
 }
 
-/* Mobile nav */
 .mobile-nav {
     display: none;
     background: var(--boja-header);
-    padding: var(--razmak-m) var(--razmak-l);
+    padding: var(--razmak-m);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -165,25 +143,18 @@ header {
     display: block;
 }
 
-.mobile-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
 .mobile-nav a {
-    color: rgba(255, 255, 255, 0.85);
-    font-family: var(--font-naslov);
-    font-size: 0.95rem;
-    padding: 0.5rem;
+    color: #fff;
     display: block;
+    padding: 0.5rem 0;
 }
 
+/* --- FOOTER --- */
 footer {
     background: var(--boja-footer);
     color: rgba(255, 255, 255, 0.7);
-    margin-top: var(--razmak-xl);
     padding: var(--razmak-l) 0;
+    margin-top: var(--razmak-xl);
 }
 
 .footer-inner {
@@ -191,58 +162,41 @@ footer {
     margin: 0 auto;
     padding: 0 var(--razmak-l);
     display: flex;
-    /* FLEXBOX */
     flex-wrap: wrap;
-    align-items: center;
-    gap: var(--razmak-m);
     justify-content: space-between;
-}
-
-.footer-brand {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-naslov);
-    font-weight: 700;
-    color: #fff;
-    font-size: 1rem;
-}
-
-.footer-authors {
-    font-size: 0.82rem;
-}
-
-.footer-links {
-    display: flex;
     gap: var(--razmak-m);
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 0.82rem;
-    font-family: var(--font-naslov);
-    transition: color var(--tranzicija);
+    margin-left: var(--razmak-m);
 }
 
 .footer-links a:hover {
     color: var(--boja-akcent);
 }
 
-.footer-copy {
-    width: 100%;
-    font-size: 0.75rem;
-    text-align: center;
-    opacity: 0.5;
-    margin-top: var(--razmak-s);
-    font-family: var(--font-naslov);
+/* --- MEDIA QUERIES --- */
+@media (max-width: 900px) {
+    .main-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@media (max-width: 600px) {
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links a {
+        margin: 0 0.5rem;
+    }
 }
 
 /* --- Kontakt Klase ---*/
