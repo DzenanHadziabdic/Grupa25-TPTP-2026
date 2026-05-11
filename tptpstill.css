@@ -257,3 +257,101 @@ footer {
     opacity: 0.8;
     margin: 0;
 }
+
+.form-wrap {
+    background: var(--boja-kartica);
+    padding: var(--razmak-l);
+    border-radius: var(--radijus);
+    border: 1px solid var(--boja-border);
+    box-shadow: var(--sjena);
+}
+
+.form-wrap h2 {
+    font-family: var(--font-naslov);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--boja-primarna);
+    margin-bottom: var(--razmak-l);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--boja-akcent);
+}
+
+.form-group {
+    margin-bottom: var(--razmak-m);
+}
+
+label {
+    display: block;
+    font-family: var(--font-naslov);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--boja-tekst);
+    margin-bottom: 0.35rem;
+}
+
+.req {
+    color: #e53e3e;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid var(--boja-border);
+    border-radius: var(--radijus);
+    background: var(--boja-pozadina);
+    color: var(--boja-tekst);
+    font-family: var(--font-tijelo);
+    font-size: 0.9rem;
+    transition: border-color var(--tranzicija), box-shadow var(--tranzicija);
+    appearance: none;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--boja-akcent);
+    box-shadow: 0 0 0 3px rgba(47, 184, 98, 0.15);
+}
+
+input.error,
+select.error,
+textarea.error {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.field-error {
+    display: block;
+    font-family: var(--font-naslov);
+    font-size: 0.73rem;
+    color: #e53e3e;
+    margin-top: 0.3rem;
+    min-height: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--razmak-m);
+    margin-top: var(--razmak-l);
+    flex-wrap: wrap;
+}
+
+.success-msg {
+    background: rgba(47, 184, 98, 0.12);
+    border: 1.5px solid var(--boja-akcent);
+    border-radius: var(--radijus);
+    padding: var(--razmak-m) var(--razmak-l);
+    font-family: var(--font-naslov);
+    font-size: 0.95rem;
+    color: var(--boja-primarna);
+    margin-bottom: var(--razmak-l);
+    animation: fadeInUp 0.4s ease;
+}
