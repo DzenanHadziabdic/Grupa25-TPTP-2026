@@ -177,8 +177,43 @@ footer {
     color: var(--boja-akcent);
 }
 
-/* --- MEDIA QUERIES --- */
+/* TABLET (600-900px) */
 @media (max-width: 900px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .side-nav {
+        grid-column: 1;
+        position: static;
+    }
+
+    main {
+        grid-column: 1;
+    }
+
+    aside {
+        grid-column: 1;
+        position: static;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kontakt-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
     .main-nav {
         display: none;
     }
@@ -188,14 +223,65 @@ footer {
     }
 }
 
+/* MOBITEL (<600px) */
 @media (max-width: 600px) {
+    .header-inner {
+        padding: 0 var(--razmak-m);
+    }
+
+    .hero {
+        padding: var(--razmak-l) var(--razmak-m);
+        min-height: 320px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-layout {
+        padding: var(--razmak-m);
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bookmark-nav {
+        padding: 0.5rem var(--razmak-m);
+        gap: 0.5rem;
+    }
+
     .footer-inner {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-links a {
-        margin: 0 0.5rem;
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .kontakt-main {
+        padding: var(--razmak-l) var(--razmak-m);
+    }
+
+    .sadrzaj-main {
+        padding: var(--razmak-m);
+    }
+
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* DESKTOP WIDE (>1200px) */
+@media (min-width: 1200px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -280,6 +366,49 @@ footer {
     margin-bottom: var(--razmak-m);
 }
 
+.btn-primary {
+    display: inline-block;
+    background: var(--boja-akcent);
+    color: #fff;
+    font-family: var(--font-naslov);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radijus);
+    transition: transform var(--tranzicija), box-shadow var(--tranzicija), background var(--tranzicija);
+    box-shadow: 0 4px 16px rgba(47, 184, 98, 0.35);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(47, 184, 98, 0.5);
+    background: #25a054;
+    color: #fff;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--boja-primarna);
+    font-family: var(--font-naslov);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radijus);
+    border: 2px solid var(--boja-primarna);
+    transition: all var(--tranzicija);
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--boja-primarna);
+    color: #fff;
+}
+
+
+
 label {
     display: block;
     font-family: var(--font-naslov);
@@ -355,45 +484,51 @@ textarea {
     margin-bottom: var(--razmak-l);
     animation: fadeInUp 0.4s ease;
 }
+
 /* --- Logo, navigacija i footer --- */
 
 .logo-text {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo-icon {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .nav-github {
-  border: 1px solid rgba(255,255,255,0.3) !important;
-  border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 6px;
 }
 
 .dark-toggle {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--radijus);
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background var(--tranzicija);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 0.4rem 0.7rem;
+    border-radius: var(--radijus);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background var(--tranzicija);
 }
 
-.dark-toggle:hover { background: rgba(255,255,255,0.2); }
-.dark-toggle:focus { outline: 2px solid var(--boja-akcent); }
+.dark-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-toggle:focus {
+    outline: 2px solid var(--boja-akcent);
+}
 
 .footer-authors {
-  font-size: 0.82rem;
+    font-size: 0.82rem;
 }
 
 .footer-copy {
-  width: 100%;
-  font-size: 0.75rem;
-  text-align: center;
-  opacity: 0.5;
-  margin-top: var(--razmak-s);
-  font-family: var(--font-naslov);
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: center;
+    opacity: 0.5;
+    margin-top: var(--razmak-s);
+    font-family: var(--font-naslov);
 }

@@ -7,6 +7,17 @@ function applyTheme(isDark) {
         darkToggle.setAttribute('aria-label', isDark ? 'Prebaci na svjetli mod' : 'Prebaci na tamni mod');
     }
 }
+
+const savedTheme = localStorage.getItem('oieTheme');
+applyTheme(savedTheme === 'dark');
+
+if (darkToggle) {
+    darkToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('oieTheme', isDark ? 'dark' : 'light');
+        darkToggle.textContent = isDark ? '☀️' : '🌙';
+    });
+}
 // Uz pomoć Claude-a sam razumio regex email validaciju
 const emailRegex = /^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i;
 
