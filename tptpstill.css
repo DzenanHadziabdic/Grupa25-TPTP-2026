@@ -280,6 +280,49 @@ footer {
     margin-bottom: var(--razmak-m);
 }
 
+.btn-primary {
+    display: inline-block;
+    background: var(--boja-akcent);
+    color: #fff;
+    font-family: var(--font-naslov);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radijus);
+    transition: transform var(--tranzicija), box-shadow var(--tranzicija), background var(--tranzicija);
+    box-shadow: 0 4px 16px rgba(47, 184, 98, 0.35);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(47, 184, 98, 0.5);
+    background: #25a054;
+    color: #fff;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--boja-primarna);
+    font-family: var(--font-naslov);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radijus);
+    border: 2px solid var(--boja-primarna);
+    transition: all var(--tranzicija);
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--boja-primarna);
+    color: #fff;
+}
+
+
+
 label {
     display: block;
     font-family: var(--font-naslov);
@@ -355,45 +398,51 @@ textarea {
     margin-bottom: var(--razmak-l);
     animation: fadeInUp 0.4s ease;
 }
+
 /* --- Logo, navigacija i footer --- */
 
 .logo-text {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo-icon {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .nav-github {
-  border: 1px solid rgba(255,255,255,0.3) !important;
-  border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 6px;
 }
 
 .dark-toggle {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--radijus);
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background var(--tranzicija);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 0.4rem 0.7rem;
+    border-radius: var(--radijus);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background var(--tranzicija);
 }
 
-.dark-toggle:hover { background: rgba(255,255,255,0.2); }
-.dark-toggle:focus { outline: 2px solid var(--boja-akcent); }
+.dark-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-toggle:focus {
+    outline: 2px solid var(--boja-akcent);
+}
 
 .footer-authors {
-  font-size: 0.82rem;
+    font-size: 0.82rem;
 }
 
 .footer-copy {
-  width: 100%;
-  font-size: 0.75rem;
-  text-align: center;
-  opacity: 0.5;
-  margin-top: var(--razmak-s);
-  font-family: var(--font-naslov);
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: center;
+    opacity: 0.5;
+    margin-top: var(--razmak-s);
+    font-family: var(--font-naslov);
 }
