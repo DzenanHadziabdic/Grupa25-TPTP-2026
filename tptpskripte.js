@@ -153,3 +153,14 @@ if (resetBtn) {
         });
     }
 });
+// Dark mode – localStorage pamćenje
+const savedTheme = localStorage.getItem('tema');
+applyTheme(savedTheme === 'dark');
+
+if (darkToggle) {
+    darkToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('tema', isDark ? 'dark' : 'light');
+        darkToggle.textContent = isDark ? '☀️' : '🌙';
+    });
+}
