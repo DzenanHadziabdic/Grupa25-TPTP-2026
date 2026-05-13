@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="bs">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sadržaj – OIE Portal BiH</title>
   <link rel="stylesheet" href="css/tptpstil.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
   <header>
@@ -23,7 +27,8 @@
           <li><a href="index.html">Naslovna</a></li>
           <li><a href="sadrzaj.html" class="active">Sadržaj</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="https://github.com/GrupaX/GrupaX-TPTP-2026" target="_blank" rel="noopener" class="nav-github">GitHub ↗</a></li>
+          <li><a href="https://github.com/GrupaX/GrupaX-TPTP-2026" target="_blank" rel="noopener"
+              class="nav-github">GitHub ↗</a></li>
         </ul>
       </nav>
       <button id="darkModeToggle" class="dark-toggle" aria-label="Promijeni temu">🌙</button>
@@ -38,103 +43,103 @@
     </nav>
   </header>
   <!-- SECTION: TABELA -->
-    <section id="tabela" class="content-section">
-      <h2 class="section-title">Cijene otkupa električne energije</h2>
-      <p>Referentne cijene otkupa električne energije iz obnovljivih izvora energije za 2025/2026 godinu:</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Tehnologija</th>
-              <th>Instalirana snaga</th>
-              <th>Referentna cijena (KM/kWh)</th>
-              <th>Period podsticaja (god.)</th>
-              <th>Status aukcije</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Solarna fotonaponska</td>
-              <td>do 500 kW</td>
-              <td>0,1650</td>
-              <td>15</td>
-              <td><span class="status aktivan">Aktivna</span></td>
-            </tr>
-            <tr>
-              <td>Solarna fotonaponska</td>
-              <td>500 kW – 10 MW</td>
-              <td>0,1250</td>
-              <td>15</td>
-              <td><span class="status aktivan">Aktivna</span></td>
-            </tr>
-            <tr>
-              <td>Vjetroelektrana</td>
-              <td>do 5 MW</td>
-              <td>0,0820</td>
-              <td>12</td>
-              <td><span class="status ceka">U pripremi</span></td>
-            </tr>
-            <tr>
-              <td>Mala hidroelektrana</td>
-              <td>do 1 MW</td>
-              <td>0,1100</td>
-              <td>15</td>
-              <td><span class="status aktivan">Aktivna</span></td>
-            </tr>
-            <tr>
-              <td>Biomasa</td>
-              <td>do 5 MW</td>
-              <td>0,1380</td>
-              <td>12</td>
-              <td><span class="status zatvoren">Zatvorena</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+  <section id="tabela" class="content-section">
+    <h2 class="section-title">Cijene otkupa električne energije</h2>
+    <p>Referentne cijene otkupa električne energije iz obnovljivih izvora energije za 2025/2026 godinu:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tehnologija</th>
+            <th>Instalirana snaga</th>
+            <th>Referentna cijena (KM/kWh)</th>
+            <th>Period podsticaja (god.)</th>
+            <th>Status aukcije</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Solarna fotonaponska</td>
+            <td>do 500 kW</td>
+            <td>0,1650</td>
+            <td>15</td>
+            <td><span class="status aktivan">Aktivna</span></td>
+          </tr>
+          <tr>
+            <td>Solarna fotonaponska</td>
+            <td>500 kW – 10 MW</td>
+            <td>0,1250</td>
+            <td>15</td>
+            <td><span class="status aktivan">Aktivna</span></td>
+          </tr>
+          <tr>
+            <td>Vjetroelektrana</td>
+            <td>do 5 MW</td>
+            <td>0,0820</td>
+            <td>12</td>
+            <td><span class="status ceka">U pripremi</span></td>
+          </tr>
+          <tr>
+            <td>Mala hidroelektrana</td>
+            <td>do 1 MW</td>
+            <td>0,1100</td>
+            <td>15</td>
+            <td><span class="status aktivan">Aktivna</span></td>
+          </tr>
+          <tr>
+            <td>Biomasa</td>
+            <td>do 5 MW</td>
+            <td>0,1380</td>
+            <td>12</td>
+            <td><span class="status zatvoren">Zatvorena</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <!-- SECTION: KATEGORIJE (ugniježdena lista) -->
-    <section id="kategorije" class="content-section">
-      <h2 class="section-title">Kategorije i podkategorije OIE</h2>
-      <ul class="nested-list">
-        <li>☀️ Solarna energija
-          <ul>
-            <li>Fotonaponski sistemi
-              <ul>
-                <li>Sistemi na krovu (rooftop)</li>
-                <li>Solarni parkovi (ground-mounted)</li>
-              </ul>
-            </li>
-            <li>Solarno termalni sistemi</li>
-            <li>Prosumerska postrojenja</li>
-          </ul>
-        </li>
-        <li>💨 Vjetroenergija
-          <ul>
-            <li>Onshore vjetroelektrane</li>
-            <li>Male vjetroelektrane (do 100 kW)
-              <ul>
-                <li>Horizontalne osi</li>
-                <li>Vertikalne osi</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>💧 Hidroenergija
-          <ul>
-            <li>Male hidroelektrane (do 10 MW)</li>
-            <li>Mikro hidroelektrane (do 100 kW)</li>
-          </ul>
-        </li>
-        <li>🌿 Biomasa i bioplin
-          <ul>
-            <li>Drvna biomasa</li>
-            <li>Bioplin iz otpada</li>
-            <li>Biogas postrojenja</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+  <!-- SECTION: KATEGORIJE (ugniježdena lista) -->
+  <section id="kategorije" class="content-section">
+    <h2 class="section-title">Kategorije i podkategorije OIE</h2>
+    <ul class="nested-list">
+      <li>☀️ Solarna energija
+        <ul>
+          <li>Fotonaponski sistemi
+            <ul>
+              <li>Sistemi na krovu (rooftop)</li>
+              <li>Solarni parkovi (ground-mounted)</li>
+            </ul>
+          </li>
+          <li>Solarno termalni sistemi</li>
+          <li>Prosumerska postrojenja</li>
+        </ul>
+      </li>
+      <li>💨 Vjetroenergija
+        <ul>
+          <li>Onshore vjetroelektrane</li>
+          <li>Male vjetroelektrane (do 100 kW)
+            <ul>
+              <li>Horizontalne osi</li>
+              <li>Vertikalne osi</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>💧 Hidroenergija
+        <ul>
+          <li>Male hidroelektrane (do 10 MW)</li>
+          <li>Mikro hidroelektrane (do 100 kW)</li>
+        </ul>
+      </li>
+      <li>🌿 Biomasa i bioplin
+        <ul>
+          <li>Drvna biomasa</li>
+          <li>Bioplin iz otpada</li>
+          <li>Biogas postrojenja</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
   </main>
 
@@ -163,4 +168,5 @@
 
   <script src="js/tptpskripte.js"></script>
 </body>
+
 </html>
