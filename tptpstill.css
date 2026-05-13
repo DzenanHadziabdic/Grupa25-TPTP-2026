@@ -485,6 +485,7 @@ textarea {
     animation: fadeInUp 0.4s ease;
 }
 
+
 /* --- Logo, navigacija i footer --- */
 
 .logo-text {
@@ -531,4 +532,382 @@ textarea {
     opacity: 0.5;
     margin-top: var(--razmak-s);
     font-family: var(--font-naslov);
+}
+
+/* --- CSS za hero sekciju i side nav --- */
+.hero {
+    background: linear-gradient(135deg, var(--boja-header) 0%, var(--boja-primarna) 100%);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: var(--razmak-xl) var(--razmak-l);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(47, 184, 98, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-tag {
+    font-family: var(--font-naslov);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--boja-akcent);
+    margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+    font-family: var(--font-naslov);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: var(--razmak-m);
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--boja-akcent);
+}
+
+.hero-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: var(--razmak-l);
+    max-width: 480px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: var(--razmak-m);
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--boja-akcent);
+    color: #fff;
+    font-family: var(--font-naslov);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radijus);
+    transition: transform var(--tranzicija), box-shadow var(--tranzicija);
+    box-shadow: 0 4px 16px rgba(47, 184, 98, 0.35);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(47, 184, 98, 0.5);
+    color: #fff;
+}
+
+.btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    font-family: var(--font-naslov);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radijus);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all var(--tranzicija);
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Hero animacija */
+.hero-visual {
+    margin-left: auto;
+    padding-left: var(--razmak-xl);
+}
+
+.energy-anim {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(47, 184, 98, 0.3);
+    animation: rotateSlow linear infinite;
+}
+
+.c1 {
+    width: 200px;
+    height: 200px;
+    animation-duration: 20s;
+}
+
+.c2 {
+    width: 140px;
+    height: 140px;
+    animation-duration: 14s;
+    animation-direction: reverse;
+    border-color: rgba(47, 184, 98, 0.5);
+}
+
+.c3 {
+    width: 80px;
+    height: 80px;
+    animation-duration: 8s;
+    border-color: rgba(47, 184, 98, 0.7);
+}
+
+.big-icon {
+    font-size: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Page layout i side-nav */
+.page-layout {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: var(--razmak-l);
+    display: grid;
+    grid-template-columns: 220px 1fr 260px;
+    gap: var(--razmak-l);
+    align-items: start;
+}
+
+.side-nav {
+    background: var(--boja-kartica);
+    border-radius: var(--radijus);
+    border: 1px solid var(--boja-border);
+    padding: var(--razmak-m);
+    position: sticky;
+    top: 90px;
+    box-shadow: var(--sjena);
+}
+
+.side-nav h3 {
+    font-family: var(--font-naslov);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--boja-primarna);
+    margin-bottom: var(--razmak-m);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--boja-akcent);
+}
+
+.filter-btn {
+    display: block;
+    font-family: var(--font-naslov);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--boja-tekst);
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radijus);
+    transition: background var(--tranzicija), color var(--tranzicija);
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--boja-primarna);
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .hero-visual {
+        display: none;
+    }
+
+    .page-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: var(--razmak-l) var(--razmak-m);
+        min-height: 320px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- Dodan CSS za kartice i aside sekciju --- */
+
+.section-title {
+    font-family: var(--font-naslov);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--boja-primarna);
+    margin-bottom: var(--razmak-l);
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--boja-akcent);
+    display: inline-block;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--razmak-m);
+}
+
+.card {
+    background: var(--boja-kartica);
+    border-radius: var(--radijus);
+    border: 1px solid var(--boja-border);
+    overflow: hidden;
+    box-shadow: var(--sjena);
+    transition: transform var(--tranzicija), box-shadow var(--tranzicija);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    background: linear-gradient(135deg, var(--boja-primarna), var(--boja-akcent));
+    min-height: 160px;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+.card-body {
+    padding: var(--razmak-m);
+}
+
+.card-tag {
+    display: inline-block;
+    font-family: var(--font-naslov);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--boja-pozadina);
+    color: var(--boja-primarna);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--boja-border);
+    margin-bottom: 0.6rem;
+}
+
+.card h3 {
+    font-family: var(--font-naslov);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.card p {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    line-height: 1.5;
+    margin-bottom: var(--razmak-m);
+}
+
+.card-link {
+    font-family: var(--font-naslov);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--boja-akcent);
+}
+
+.card-link:hover {
+    color: var(--boja-primarna);
+}
+
+.card.hidden {
+    display: none;
+}
+
+.no-results {
+    text-align: center;
+    padding: var(--razmak-xl);
+    font-family: var(--font-naslov);
+    opacity: 0.5;
+}
+
+.aside-block {
+    background: var(--boja-kartica);
+    border-radius: var(--radijus);
+    border: 1px solid var(--boja-border);
+    padding: var(--razmak-m);
+    box-shadow: var(--sjena);
+    margin-bottom: var(--razmak-m);
+}
+
+.aside-block h3 {
+    font-family: var(--font-naslov);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--boja-primarna);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--boja-akcent);
+}
+
+.aside-block iframe {
+    border-radius: 6px;
+    display: block;
+}
+
+.aside-desc {
+    font-size: 0.78rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
 }
