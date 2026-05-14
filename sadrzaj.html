@@ -1,43 +1,26 @@
 <!DOCTYPE html>
 <html lang="bs">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sadržaj – OIE Portal BiH</title>
-<<<<<<< HEAD
-  <link rel="stylesheet" href="css/tptpstil.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap"
-    rel="stylesheet">
-=======
+  <title>Zeleni Volti – Obnovljivi Izvori Energije BiH</title>
   <link rel="stylesheet" href="tptpstill.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
->>>>>>> 6ccd5285480a34e3571f357ddef3bdc8ccb36946
 </head>
-
 <body>
 
   <header>
     <div class="header-inner">
       <div class="logo">
-        <span class="logo-icon">⚡</span>
-        <div class="logo-text">
-          <span class="logo-main">OIE Portal</span>
-          <span class="logo-sub">Obnovljivi Izvori Energije BiH</span>
-        </div>
-      </div>
+  <img src="images/logo.png" alt="Zeleni Volti logo" height="45">
+</div>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html">Naslovna</a></li>
-          <li><a href="sadrzaj.html" class="active">Sadržaj</a></li>
+          <li><a href="index.html" class="active">Naslovna</a></li>
+          <li><a href="sadrzaj.html">Sadržaj</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-<<<<<<< HEAD
-          <li><a href="https://github.com/GrupaX/GrupaX-TPTP-2026" target="_blank" rel="noopener"
-              class="nav-github">GitHub ↗</a></li>
-=======
-          <li><a href="https://github.com/DzenanHadziabdic/Grupa25-TPTP-2026" target="_blank" rel="noopener" class="nav-github">GitHub ↗</a></li>
->>>>>>> 6ccd5285480a34e3571f357ddef3bdc8ccb36946
+          <li><a href="https://github.com/DzenanHadziabdic/Grupa25-TPTP-2026"
+                 target="_blank" rel="noopener" class="nav-github">GitHub ↗</a></li>
         </ul>
       </nav>
       <button id="darkModeToggle" class="dark-toggle" aria-label="Promijeni temu">🌙</button>
@@ -51,61 +34,96 @@
       </ul>
     </nav>
   </header>
-  <!-- SECTION: TABELA -->
-  <section id="tabela" class="content-section">
-    <h2 class="section-title">Cijene otkupa električne energije</h2>
-    <p>Referentne cijene otkupa električne energije iz obnovljivih izvora energije za 2025/2026 godinu:</p>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Tehnologija</th>
-            <th>Instalirana snaga</th>
-            <th>Referentna cijena (KM/kWh)</th>
-            <th>Period podsticaja (god.)</th>
-            <th>Status aukcije</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Solarna fotonaponska</td>
-            <td>do 500 kW</td>
-            <td>0,1650</td>
-            <td>15</td>
-            <td><span class="status aktivan">Aktivna</span></td>
-          </tr>
-          <tr>
-            <td>Solarna fotonaponska</td>
-            <td>500 kW – 10 MW</td>
-            <td>0,1250</td>
-            <td>15</td>
-            <td><span class="status aktivan">Aktivna</span></td>
-          </tr>
-          <tr>
-            <td>Vjetroelektrana</td>
-            <td>do 5 MW</td>
-            <td>0,0820</td>
-            <td>12</td>
-            <td><span class="status ceka">U pripremi</span></td>
-          </tr>
-          <tr>
-            <td>Mala hidroelektrana</td>
-            <td>do 1 MW</td>
-            <td>0,1100</td>
-            <td>15</td>
-            <td><span class="status aktivan">Aktivna</span></td>
-          </tr>
-          <tr>
-            <td>Biomasa</td>
-            <td>do 5 MW</td>
-            <td>0,1380</td>
-            <td>12</td>
-            <td><span class="status zatvoren">Zatvorena</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+
+  <!-- BOOKMARK NAV -->
+  <div class="bookmark-nav">
+    <a href="#tehnologije">Tehnologije OIE</a>
+    <a href="#tabela">Cijene otkupa</a>
+    <a href="#galerija">Galerija</a>
+    <a href="#mapa-slika">Mapa energije</a>
+    <a href="#kategorije">Kategorije</a>
+  </div>
+
+  <main class="sadrzaj-main">
+
+    <!-- SECTION: TEHNOLOGIJE -->
+    <section id="tehnologije" class="content-section">
+      <h2 class="section-title">Tehnologije obnovljivih izvora energije</h2>
+      <p class="section-intro">Obnovljivi izvori energije obuhvataju različite tehnologije koje koriste prirodne resurse koji se obnavljaju — sunce, vjetar, voda i biomasa su najzastupljeniji u Bosni i Hercegovini.</p>
+
+      <!-- IMAGE MAP -->
+      <div id="mapa-slika" class="image-map-wrap">
+        <h3>Klikni na tip energije</h3>
+        <img src="images/mapa-energije.jpg"
+             alt="Infografika tipova obnovljivih izvora energije: solarna, vjetar, hidro, biomasa"
+             usemap="#energymap"
+             style="max-width:100%; height:auto;">
+        <map name="energymap">
+          <area shape="rect" coords="0,0,150,150" href="#solar-info" alt="Solarna energija" title="Solarna energija">
+          <area shape="rect" coords="150,0,300,150" href="#vjetar-info" alt="Vjetroenergija" title="Vjetroenergija">
+          <area shape="circle" coords="380,75,60" href="#hidro-info" alt="Hidroenergija" title="Hidroenergija">
+        </map>
+        <div id="solar-info" class="map-info">☀️ Solarna energija — sunčevo zračenje pretvara se u struju putem fotonaponskih panela.</div>
+        <div id="vjetar-info" class="map-info">💨 Vjetroenergija — kinetička energija vjetra pokreće turbine i generira struju.</div>
+        <div id="hidro-info" class="map-info">💧 Hidroenergija — potencijalna energija vode iskorišćava se u turbinama hidroelektrana.</div>
+      </div>
+    </section>
+
+    <!-- SECTION: TABELA -->
+    <section id="tabela" class="content-section">
+      <h2 class="section-title">Cijene otkupa električne energije</h2>
+      <p>Referentne cijene otkupa električne energije iz obnovljivih izvora energije za 2025/2026 godinu:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tehnologija</th>
+              <th>Instalirana snaga</th>
+              <th>Referentna cijena (KM/kWh)</th>
+              <th>Period podsticaja (god.)</th>
+              <th>Status aukcije</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Solarna fotonaponska</td>
+              <td>do 500 kW</td>
+              <td>0,1650</td>
+              <td>15</td>
+              <td><span class="status aktivan">Aktivna</span></td>
+            </tr>
+            <tr>
+              <td>Solarna fotonaponska</td>
+              <td>500 kW – 10 MW</td>
+              <td>0,1250</td>
+              <td>15</td>
+              <td><span class="status aktivan">Aktivna</span></td>
+            </tr>
+            <tr>
+              <td>Vjetroelektrana</td>
+              <td>do 5 MW</td>
+              <td>0,0820</td>
+              <td>12</td>
+              <td><span class="status ceka">U pripremi</span></td>
+            </tr>
+            <tr>
+              <td>Mala hidroelektrana</td>
+              <td>do 1 MW</td>
+              <td>0,1100</td>
+              <td>15</td>
+              <td><span class="status aktivan">Aktivna</span></td>
+            </tr>
+            <tr>
+              <td>Biomasa</td>
+              <td>do 5 MW</td>
+              <td>0,1380</td>
+              <td>12</td>
+              <td><span class="status zatvoren">Zatvorena</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
   <!-- SECTION: KATEGORIJE (ugniježdena lista) -->
   <section id="kategorije" class="content-section">
