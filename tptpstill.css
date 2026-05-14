@@ -911,3 +911,118 @@ textarea {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Bookmark navigacija na vrhu stranice sadržaj.html */
+.bookmark-nav {
+  background: var(--boja-kartica);
+  border-bottom: 2px solid var(--boja-border);
+  padding: 0.75rem var(--razmak-l);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--razmak-m);
+  position: sticky;
+  top: 70px; /* Prilagoditi visini headera */
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.bookmark-nav a {
+  font-family: var(--font-naslov);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--boja-primarna);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radijus);
+  border: 1px solid var(--boja-border);
+  transition: all var(--tranzicija);
+}
+
+.bookmark-nav a:hover {
+  background: var(--boja-primarna);
+  color: #fff;
+}
+/* Mapa slike (image map) i info blokovi */
+.image-map-wrap { margin-bottom: var(--razmak-l); }
+
+.map-info {
+  display: none; /* Sakriveno dok se ne klikne (target) */
+  background: var(--boja-kartica);
+  border-left: 4px solid var(--boja-akcent);
+  padding: var(--razmak-m);
+  margin-top: 0.5rem;
+  border-radius: 0 var(--radijus) var(--radijus) 0;
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.map-info:target { 
+  display: block; /* Prikazuje se kada URL završi sa #solar-info npr. */
+}
+/* Stilovi za tabelu */
+.table-wrap {
+  overflow-x: auto; /* Omogućava scroll na mobitelima */
+  border-radius: var(--radijus);
+  box-shadow: var(--sjena);
+  margin-top: var(--razmak-m);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--boja-kartica);
+}
+
+thead tr { background: var(--boja-primarna); color: #fff; }
+
+th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--boja-border); }
+
+tr:nth-child(even) td { background: rgba(47,184,98,0.04); }
+
+/* Statusni bedževi unutar tabele */
+.status {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+.status.aktivan { background: rgba(47,184,98,0.15); color: #1a5c38; }
+.status.ceka    { background: rgba(255,193,7,0.15);  color: #856404; }
+.status.zatvoren { background: rgba(220,53,69,0.1); color: #842029; }
+
+/*(Ugniježdena)lista kategorije*/
+.nested-list > li {
+  font-family: var(--font-naslov);
+  font-weight: 700;
+  color: var(--boja-primarna);
+  margin-bottom: var(--razmak-m);
+  list-style: none;
+  position: relative;
+}
+
+.nested-list ul {
+  padding-left: var(--razmak-m);
+  list-style: none;
+}
+
+.nested-list ul li::before {
+  content: '–';
+  margin-right: 8px;
+  color: var(--boja-akcent);
+}
+
+/*Dugme skoci na vrh*/
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--boja-primarna);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radijus);
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 100;
+  box-shadow: var(--sjena);
+}
