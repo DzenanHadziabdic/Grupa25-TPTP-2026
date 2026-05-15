@@ -911,3 +911,575 @@ textarea {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Bookmark navigacija na vrhu stranice sadržaj.html */
+.bookmark-nav {
+  background: var(--boja-kartica);
+  border-bottom: 2px solid var(--boja-border);
+  padding: 0.75rem var(--razmak-l);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--razmak-m);
+  position: sticky;
+  top: 70px; /* Prilagoditi visini headera */
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.bookmark-nav a {
+  font-family: var(--font-naslov);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--boja-primarna);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radijus);
+  border: 1px solid var(--boja-border);
+  transition: all var(--tranzicija);
+}
+
+.bookmark-nav a:hover {
+  background: var(--boja-primarna);
+  color: #fff;
+}
+/* Mapa slike (image map) i info blokovi */
+.image-map-wrap { margin-bottom: var(--razmak-l); }
+
+.map-info {
+  display: none; /* Sakriveno dok se ne klikne (target) */
+  background: var(--boja-kartica);
+  border-left: 4px solid var(--boja-akcent);
+  padding: var(--razmak-m);
+  margin-top: 0.5rem;
+  border-radius: 0 var(--radijus) var(--radijus) 0;
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.map-info:target { 
+  display: block; /* Prikazuje se kada URL završi sa #solar-info npr. */
+}
+/* Stilovi za tabelu */
+.table-wrap {
+  overflow-x: auto; /* Omogućava scroll na mobitelima */
+  border-radius: var(--radijus);
+  box-shadow: var(--sjena);
+  margin-top: var(--razmak-m);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--boja-kartica);
+}
+
+thead tr { background: var(--boja-primarna); color: #fff; }
+
+th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--boja-border); }
+
+tr:nth-child(even) td { background: rgba(47,184,98,0.04); }
+
+/* Statusni bedževi unutar tabele */
+.status {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+.status.aktivan { background: rgba(47,184,98,0.15); color: #1a5c38; }
+.status.ceka    { background: rgba(255,193,7,0.15);  color: #856404; }
+.status.zatvoren { background: rgba(220,53,69,0.1); color: #842029; }
+
+/*(Ugniježdena)lista kategorije*/
+.nested-list > li {
+  font-family: var(--font-naslov);
+  font-weight: 700;
+  color: var(--boja-primarna);
+  margin-bottom: var(--razmak-m);
+  list-style: none;
+  position: relative;
+}
+
+.nested-list ul {
+  padding-left: var(--razmak-m);
+  list-style: none;
+}
+
+.nested-list ul li::before {
+  content: '–';
+  margin-right: 8px;
+  color: var(--boja-akcent);
+}
+
+/*Dugme skoci na vrh*/
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--boja-primarna);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radijus);
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 100;
+  box-shadow: var(--sjena);
+}
+
+/* ==========================================================================
+   1. VARIJABLE I RESET (Teme, Fontovi, Osnova)
+   ========================================================================== */
+
+:root {
+    --boja-primarna: #1a5c38;
+    --boja-akcent: #2fb862;
+    --boja-pozadina: #f4f7f4;
+    --boja-tekst: #1e2a22;
+    --boja-header: #0d3a22;
+    --boja-kartica: #ffffff;
+    --boja-border: #d0e4d7;
+    --boja-footer: #0d3a22;
+    --font-naslov: 'Montserrat', sans-serif;
+    --font-tijelo: 'Source Serif 4', serif;
+    --razmak-s: 0.5rem;
+    --razmak-m: 1rem;
+    --razmak-l: 2rem;
+    --razmak-xl: 4rem;
+    --radijus: 8px;
+    --sjena: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --tranzicija: 0.25s ease;
+}
+
+/* Tamni Mod */
+body.dark {
+    --boja-primarna: #2fb862;
+    --boja-akcent: #5be08a;
+    --boja-pozadina: #0f1a14;
+    --boja-tekst: #e8f5ee;
+    --boja-header: #071510;
+    --boja-kartica: #162410;
+    --boja-border: #2a4a32;
+    --boja-footer: #071510;
+}
+
+/* Reset osnova */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Da header ne prekrije naslov pri skoku */
+}
+
+body {
+    font-family: var(--font-tijelo);
+    background-color: var(--boja-pozadina);
+    color: var(--boja-tekst);
+    line-height:
+
+
+    /* ===========================================
+   NOVI STILOVI - KARTICE TEHNOLOGIJA I FAQ
+   =========================================== */
+
+/* --- Moderne kartice za OIE tehnologije --- */
+.tech-grid {
+    display: grid;
+    /* Automatski prilagođava broj kolona ovisno o širini ekrana */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--razmak-l);
+    margin: var(--razmak-l) 0;
+}
+
+.tech-card {
+    background: var(--boja-kartica);
+    padding: var(--razmak-l) var(--razmak-m);
+    border-radius: var(--radijus);
+    border: 1px solid var(--boja-border);
+    text-align: center;
+    box-shadow: var(--sjena);
+    /* Glatki prelaz kod hovera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-8px); /* Podizanje kartice */
+    box-shadow: 0 12px 30px rgba(47, 184, 98, 0.15);
+    border-color: var(--boja-akcent);
+}
+
+.tech-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--razmak-m);
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1) rotate(5deg); /* Efekat ikone */
+}
+
+.tech-card h3 {
+    font-family: var(--font-naslov);
+    color: var(--boja-primarna);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tech-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* --- FAQ Harmonika (Accordion) --- */
+.faq-container {
+    max-width: 850px;
+    margin: var(--razmak-m) 0;
+}
+
+.faq-item {
+    background: var(--boja-kartica);
+    margin-bottom: var(--razmak-m);
+    border: 1px solid var(--boja-border);
+    border-radius: var(--radijus);
+    overflow: hidden; /* Ne dozvoljava tekstu da viri dok je zatvoreno */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.2rem 1.5rem;
+    background: transparent;
+    border: none;
+    font-family: var(--font-naslov);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--boja-primarna);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(47, 184, 98, 0.05);
+}
+
+.faq-icon {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--boja-akcent);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0; /* Sakriva tekst po defaultu */
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 1.5rem;
+    background: rgba(47, 184, 98, 0.015);
+}
+
+.faq-answer p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin: 0;
+}
+
+/* Stanje kada je FAQ otvoren (JS dodaje klasu 'active') */
+.faq-item.active .faq-question {
+    color: var(--boja-akcent);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 400px; /* Dovoljno prostora da se tekst otvori */
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Pretvara plus u X */
+}
+
+
+/* jos funk
+/* ===========================================
+   NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
+   =========================================== */
+
+/* --- Progress Bar za čitanje na vrhu --- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--boja-akcent), #12e2a3);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* --- Popravak Galerije (Centriranje i iste proporcije slika) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--razmak-l);
+}
+
+.gallery-grid figure {
+    margin: 0;
+    text-align: center;
+    background: var(--boja-kartica);
+    border-radius: var(--radijus);
+    overflow: hidden;
+    box-shadow: var(--sjena);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-grid figure:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Dugme 'Saznaj više' --- */
+.btn-more {
+    background: var(--boja-akcent);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-more:hover {
+    background: #259650;
+    transform: translateY(-2px);
+}
+
+/* --- MODAL (Iskakući prozor) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--boja-pozadina);
+    padding: 2rem;
+    border-radius: var(--radijus);
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radijus);
+    margin: 1rem 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--boja-tekst);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--boja-akcent);
+}
+
+/* --- Fade-In Animacija za skrolanje --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/
+/* ===========================================
+   NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
+   =========================================== */
+
+/* --- Progress Bar za čitanje na vrhu --- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--boja-akcent), #12e2a3);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* --- Popravak Galerije (Centriranje i iste proporcije slika) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--razmak-l);
+}
+
+.gallery-grid figure {
+    margin: 0;
+    text-align: center;
+    background: var(--boja-kartica);
+    border-radius: var(--radijus);
+    overflow: hidden;
+    box-shadow: var(--sjena);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-grid figure:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Dugme 'Saznaj više' --- */
+.btn-more {
+    background: var(--boja-akcent);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-more:hover {
+    background: #259650;
+    transform: translateY(-2px);
+}
+
+/* --- MODAL (Iskakući prozor) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--boja-pozadina);
+    padding: 2rem;
+    border-radius: var(--radijus);
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--radijus);
+    margin: 1rem 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--boja-tekst);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--boja-akcent);
+}
+
+/* --- Fade-In Animacija za skrolanje --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
