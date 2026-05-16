@@ -18,11 +18,17 @@ if (darkToggle) {
         darkToggle.textContent = isDark ? '☀️' : '🌙';
     });
 }
-// Uz pomoć Claude-a sam razumio regex email validaciju
-const emailRegex = /^[\w.-]+@[\w.-]+\.[a-z]{2,}$/i;
 
-// Regex za telefon: + na početku (opcionalno), cifre, razmaci, crtice
-const telefonRegex = /^[+]?[\d\s\-]{7,20}$/;
+// 1. Ime i prezime: Samo slova (uključujući i naša č, ć, ž, š, đ), razmake i crtice (za dupla prezimena) ,uz pomoć AI
+const imePrezimeRegex = /^[A-Za-zČčĆćŽžŠšĐđ\s-]+$/;
+
+// 2. Telefon: Tačan format +387 xx xxx xxx ili +387 xx xx xxx (pokriva fiksne i mobilne u BiH) //pomoc AI
+// Dozvoljava prostor za 2 ili 3 cifre u pozivnom, i grupacije od 2, 3 ili 4 cifre, odvojene razmakom
+const telefonBiHRegex = /^\+387\s\d{2}\s\d{2,3}\s\d{3,4}$/;
+
+// 3. Email: Lista dozvoljenih domena
+const dozvoljeneDomene = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com'];
+const emailRegex = /^[\w.-]+@([\w.-]+\.[a-z]{2,})$/i;
 
 const submitBtn = document.getElementById('submitBtn');
 const resetBtn = document.getElementById('resetBtn');
@@ -49,6 +55,9 @@ function validateForm() {
     if (!ime || ime.value.trim().length < 2) {
         setFieldError('ime', 'err-ime', 'Ime mora imati najmanje 2 znaka.');
         isValid = false;
+    } else if (!imePrezimeRegex.test(ime.value.trim())) {
+        setFieldError('ime', 'err-ime', 'Ime može sadržavati samo slova.');
+        isValid = false;
     } else {
         setFieldError('ime', 'err-ime', '');
     }
@@ -58,23 +67,40 @@ function validateForm() {
     if (!prezime || prezime.value.trim().length < 2) {
         setFieldError('prezime', 'err-prezime', 'Prezime mora imati najmanje 2 znaka.');
         isValid = false;
+    } else if (!imePrezimeRegex.test(prezime.value.trim())) {
+        setFieldError('prezime', 'err-prezime', 'Prezime može sadržavati samo slova.');
+        isValid = false;
     } else {
         setFieldError('prezime', 'err-prezime', '');
     }
 
     // Email
     const email = document.getElementById('email');
-    if (!email || !emailRegex.test(email.value.trim())) {
-        setFieldError('email', 'err-email', 'Unesite ispravnu email adresu (primjer@domena.com).');
+    if (!email) {
         isValid = false;
     } else {
-        setFieldError('email', 'err-email', '');
+        const emailValue = email.value.trim();
+        const match = emailValue.match(emailRegex);
+
+        if (!match) {
+            setFieldError('email', 'err-email', 'Unesite ispravnu email adresu (primjer@domena.com).');
+            isValid = false;
+        } else {
+            // match[1] izvlači samo dio nakon '@' (npr. gmail.com)
+            const domena = match[1].toLowerCase();
+            if (!dozvoljeneDomene.includes(domena)) {
+                setFieldError('email', 'err-email', 'Dozvoljeni su samo popularni email servisi (Gmail, Yahoo, Hotmail...).');
+                isValid = false;
+            } else {
+                setFieldError('email', 'err-email', '');
+            }
+        }
     }
 
     // Telefon
     const telefon = document.getElementById('telefon');
-    if (!telefon || !telefonRegex.test(telefon.value.trim())) {
-        setFieldError('telefon', 'err-telefon', 'Telefon: samo cifre, razmaci, crtice i + (min. 7 znakova).');
+    if (!telefon || !telefonBiHRegex.test(telefon.value.trim())) {
+        setFieldError('telefon', 'err-telefon', 'Format telefona mora biti: +387 xx xxx xxx ili +387 xx xx xxxx');
         isValid = false;
     } else {
         setFieldError('telefon', 'err-telefon', '');
@@ -101,6 +127,7 @@ function validateForm() {
     return isValid;
 }
 
+// Ostatak tvog koda za submitBtn, resetBtn i real-time validaciju ostaje POTPUNO ISTI.
 if (submitBtn) {
     submitBtn.addEventListener('click', () => {
         if (validateForm()) {
@@ -177,9 +204,9 @@ if (darkToggle) {
 }
     */
 
-   /* ===========================================
-   DODATAK ZA NAVIGACIJU I INTERAKCIJU u sadrzaju
-   =========================================== */
+/* ===========================================
+DODATAK ZA NAVIGACIJU I INTERAKCIJU u sadrzaju
+=========================================== */
 
 // 1. Hamburger meni za mobilne uređaje
 const hamburger = document.getElementById('hamburger');
@@ -252,7 +279,7 @@ faqQuestions.forEach(btn => {
     btn.addEventListener('click', () => {
         // Pronađi glavni div kontejner za to specifično pitanje (faq-item)
         const faqItem = btn.parentElement;
-        
+
         // Provjeri da li je trenutno kliknuti element već otvoren
         const isActive = faqItem.classList.contains('active');
 
@@ -326,7 +353,7 @@ const appearOptions = {
     rootMargin: "0px 0px -50px 0px"
 };
 
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
     entries.forEach(entry => {
         if (!entry.isIntersecting) {
             return;
