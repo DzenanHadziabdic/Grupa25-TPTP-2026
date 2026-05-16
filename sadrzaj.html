@@ -3,48 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-  <title>Sadržaj – OIE Portal BiH</title>
-
-  <link rel="stylesheet" href="css/tptpstil.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap"
-    rel="stylesheet">
-  =======
-  <link rel="stylesheet" href="tptpstill.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap"
-    rel="stylesheet">
-
-=======
   <title>Zeleni Volti – Obnovljivi Izvori Energije BiH</title>
   <link rel="stylesheet" href="tptpstill.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
->>>>>>> 072adf0c98ba020ab51d6d472b24785a48c2d6df
 </head>
 <body>
 
   <header>
     <div class="header-inner">
       <div class="logo">
-  <img src="images/logo.png" alt="Zeleni Volti logo" height="45">
-</div>
+        <img src="images/logo.png" alt="Zeleni Volti logo" height="45">
+      </div>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" class="active">Naslovna</a></li>
-          <li><a href="sadrzaj.html">Sadržaj</a></li>
+          <li><a href="index.html">Naslovna</a></li>
+          <li><a href="sadrzaj.html" class="active">Sadržaj</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-<<<<<<< HEAD
-          <<<<<<< HEAD <li><a href="https://github.com/GrupaX/GrupaX-TPTP-2026" target="_blank" rel="noopener"
-              class="nav-github">GitHub ↗</a></li>
-            =======
-            <li><a href="https://github.com/DzenanHadziabdic/Grupa25-TPTP-2026" target="_blank" rel="noopener"
-                class="nav-github">GitHub ↗</a></li>
-            >>>>>>> 6ccd5285480a34e3571f357ddef3bdc8ccb36946
-=======
-          <li><a href="https://github.com/DzenanHadziabdic/Grupa25-TPTP-2026"
-                 target="_blank" rel="noopener" class="nav-github">GitHub ↗</a></li>
->>>>>>> 072adf0c98ba020ab51d6d472b24785a48c2d6df
+          <li><a href="https://github.com/DzenanHadziabdic/Grupa25-TPTP-2026" target="_blank" rel="noopener" class="nav-github">GitHub ↗</a></li>
         </ul>
       </nav>
       <button id="darkModeToggle" class="dark-toggle" aria-label="Promijeni temu">🌙</button>
@@ -59,42 +34,48 @@
     </nav>
   </header>
 
-  <!-- BOOKMARK NAV -->
   <div class="bookmark-nav">
     <a href="#tehnologije">Tehnologije OIE</a>
     <a href="#tabela">Cijene otkupa</a>
     <a href="#galerija">Galerija</a>
-    <a href="#mapa-slika">Mapa energije</a>
     <a href="#kategorije">Kategorije</a>
   </div>
 
   <main class="sadrzaj-main">
 
-    <!-- SECTION: TEHNOLOGIJE -->
-    <section id="tehnologije" class="content-section">
+    <section id="tehnologije" class="content-section fade-in">
       <h2 class="section-title">Tehnologije obnovljivih izvora energije</h2>
-      <p class="section-intro">Obnovljivi izvori energije obuhvataju različite tehnologije koje koriste prirodne resurse koji se obnavljaju — sunce, vjetar, voda i biomasa su najzastupljeniji u Bosni i Hercegovini.</p>
+      <p class="section-intro">Kliknite na bilo koji dio slika ispod kako biste saznali detaljne informacije o svakoj vrsti obnovljive energije u Bosni i Hercegovini.</p>
 
-      <!-- IMAGE MAP -->
-      <div id="mapa-slika" class="image-map-wrap">
-        <h3>Klikni na tip energije</h3>
-        <img src="images/mapa-energije.jpg"
-             alt="Infografika tipova obnovljivih izvora energije: solarna, vjetar, hidro, biomasa"
-             usemap="#energymap"
-             style="max-width:100%; height:auto;">
-        <map name="energymap">
-          <area shape="rect" coords="0,0,150,150" href="#solar-info" alt="Solarna energija" title="Solarna energija">
-          <area shape="rect" coords="150,0,300,150" href="#vjetar-info" alt="Vjetroenergija" title="Vjetroenergija">
-          <area shape="circle" coords="380,75,60" href="#hidro-info" alt="Hidroenergija" title="Hidroenergija">
-        </map>
-        <div id="solar-info" class="map-info">☀️ Solarna energija — sunčevo zračenje pretvara se u struju putem fotonaponskih panela.</div>
-        <div id="vjetar-info" class="map-info">💨 Vjetroenergija — kinetička energija vjetra pokreće turbine i generira struju.</div>
-        <div id="hidro-info" class="map-info">💧 Hidroenergija — potencijalna energija vode iskorišćava se u turbinama hidroelektrana.</div>
+      <div class="interactive-maps-container">
+        
+        <div class="map-block">
+          <h3>Vjetar i Voda</h3>
+          <img src="images/vjetarihidro.jpg" 
+               alt="Prikaz vjetroelektrane i hidroelektrane" 
+               usemap="#map-vjetar-hidro" 
+               class="map-image">
+          <map name="map-vjetar-hidro">
+            <area shape="rect" coords="0,0,150,300" href="#" alt="Vjetroenergija" title="Klikni za detalje o vjetru" class="map-trigger" data-modal="modal-vjetar">
+            <area shape="rect" coords="150,0,300,300" href="#" alt="Hidroenergija" title="Klikni za detalje o vodi" class="map-trigger" data-modal="modal-hidro">
+          </map>
+        </div>
+
+        <div class="map-block">
+          <h3>Solarna Energija</h3>
+          <img src="images/solar.jpg" 
+               alt="Prikaz solarnih panela" 
+               usemap="#map-solar" 
+               class="map-image">
+          <map name="map-solar">
+            <area shape="rect" coords="0,0,300,300" href="#" alt="Solarna energija" title="Klikni za detalje o suncu" class="map-trigger" data-modal="modal-solar">
+          </map>
+        </div>
+
       </div>
     </section>
 
-    <!-- SECTION: TABELA -->
-    <section id="tabela" class="content-section">
+    <section id="tabela" class="content-section fade-in">
       <h2 class="section-title">Cijene otkupa električne energije</h2>
       <p>Referentne cijene otkupa električne energije iz obnovljivih izvora energije za 2025/2026 godinu:</p>
       <div class="table-wrap">
@@ -149,8 +130,7 @@
       </div>
     </section>
     
-<!-- SECTION: GALERIJA -->
-    <section id="galerija" class="content-section">
+    <section id="galerija" class="content-section fade-in">
       <h2 class="section-title">Galerija projekata</h2>
       <div class="gallery-grid">
         <figure>
@@ -180,8 +160,7 @@
       </div>
     </section>
 
-  <!-- SECTION: KATEGORIJE (ugniježdena lista) -->
-  <section id="kategorije" class="content-section">
+  <section id="kategorije" class="content-section fade-in">
     <h2 class="section-title">Kategorije i podkategorije OIE</h2>
     <ul class="nested-list">
       <li>☀️ Solarna energija
@@ -199,12 +178,7 @@
       <li>💨 Vjetroenergija
         <ul>
           <li>Onshore vjetroelektrane</li>
-          <li>Male vjetroelektrane (do 100 kW)
-            <ul>
-              <li>Horizontalne osi</li>
-              <li>Vertikalne osi</li>
-            </ul>
-          </li>
+          <li>Male vjetroelektrane (do 100 kW)</li>
         </ul>
       </li>
       <li>💧 Hidroenergija
@@ -234,17 +208,35 @@
         <span>Zeleni Volti BiH</span>
       </div>
       <div class="footer-authors">
-        <strong>Autori:</strong>
-        Tarik Hasanović &nbsp;|&nbsp;
-        Dženan Ćejvanović &nbsp;|&nbsp;
-        Dženan Hadžiabdić
+        <strong>Autori:</strong> Tarik Hasanović &nbsp;|&nbsp; Dženan Ćejvanović &nbsp;|&nbsp; Dženan Hadžiabdić
       </div>
-
-
     </div>
   </footer>
 
+  <div id="modal-solar" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>☀️ Solarna energija</h2>
+      <p><strong>Kako funkcioniše?</strong> Solarni paneli sastoje se od fotonaponskih ćelija napravljenih od silicija. Kada sunčeva svjetlost udari u njih, stvara se jednosmjerna struja (DC).</p>
+    </div>
+  </div>
+
+  <div id="modal-vjetar" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>💨 Vjetroenergija</h2>
+      <p><strong>Kako funkcioniše?</strong> Kinetička energija vjetra okreće elise rotora na vjetroturbinama. Rotor je povezan s generatorom koji proizvodi električnu energiju.</p>
+    </div>
+  </div>
+
+  <div id="modal-hidro" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>💧 Hidroenergija</h2>
+      <p><strong>Kako funkcioniše?</strong> Voda pod pritiskom ili u padu prolazi kroz ogromne turbine i okreće ih, što pokreće generatore. Ovo je najefikasniji oblik konverzije energije koji postoji.</p>
+    </div>
+  </div>
+
   <script src="tptpskripte.js"></script>
 </body>
-
 </html>
