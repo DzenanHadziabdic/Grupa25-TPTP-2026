@@ -205,8 +205,8 @@ if (darkToggle) {
     */
 
 /* ===========================================
-DODATAK ZA NAVIGACIJU I INTERAKCIJU u sadrzaju
-=========================================== */
+   DODATAK ZA NAVIGACIJU I INTERAKCIJU u sadrzaju
+   =========================================== */
 
 // 1. Hamburger meni za mobilne uređaje
 const hamburger = document.getElementById('hamburger');
@@ -220,7 +220,7 @@ if (hamburger && mobileNav) {
     });
 }
 
-// Zatvori mobilni meni kada se klikne na link (bitno za bookmark linkove)
+// Zatvori mobilni meni kada se klikne na link
 document.querySelectorAll('.mobile-nav a').forEach(link => {
     link.addEventListener('click', () => {
         if (mobileNav) mobileNav.classList.remove('open');
@@ -234,7 +234,6 @@ const backToTopBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
     if (backToTopBtn) {
-        // Dugme se pojavljuje tek nakon što korisnik skrola 400px naniže
         if (window.scrollY > 400) {
             backToTopBtn.classList.add('visible');
         } else {
@@ -245,7 +244,6 @@ window.addEventListener('scroll', () => {
 
 
 // 3. Aktivna klasa za Bookmark Navigaciju
-// Ovo označava dugme u bookmark-navu zavisno od toga u kojoj si sekciji
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.bookmark-nav a');
 
@@ -270,56 +268,37 @@ window.addEventListener('scroll', () => {
 /* ===========================================
    LOGIKA ZA FAQ (Harmonika)
    =========================================== */
-
-// 1. Hvatanje svih dugmića sa pitanjima
 const faqQuestions = document.querySelectorAll('.faq-question');
 
-// 2. Prolazak kroz svaki dugme
 faqQuestions.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Pronađi glavni div kontejner za to specifično pitanje (faq-item)
         const faqItem = btn.parentElement;
-
-        // Provjeri da li je trenutno kliknuti element već otvoren
         const isActive = faqItem.classList.contains('active');
 
-        // Zatvori sve ostale otvorene FAQ stavke (da bude urednije)
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
 
-        // Ako pitanje na koje smo kliknuli NIJE bilo aktivno, otvori ga
         if (!isActive) {
             faqItem.classList.add('active');
         }
     });
 });
 
-/*
+
 /* ===========================================
-   NAPREDNE FUNKCIJE: Modali, Progres Traka i Animacije
+   NAPREDNE FUNKCIJE: Modali i Animacije
    =========================================== */
 
-// 1. SCROLL PROGRESS BAR (Traka na vrhu)
-window.addEventListener('scroll', () => {
-    const scrollProgress = document.getElementById('scrollProgress');
-    if (scrollProgress) {
-        const scrollPx = document.documentElement.scrollTop || document.body.scrollTop;
-        const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (scrollPx / winHeightPx) * 100;
-        scrollProgress.style.width = scrolled + "%";
-    }
-});
-
-// 2. MODALI (Iskakući prozori)
-const btnsMore = document.querySelectorAll('.btn-more');
+// 1. MODALI (Iskakući prozori)
+const modalTriggers = document.querySelectorAll('.btn-more, .map-trigger');
 const modals = document.querySelectorAll('.modal');
 const closeBtns = document.querySelectorAll('.close-modal');
 
-// Otvaranje modala
-btnsMore.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const modalId = btn.getAttribute('data-modal');
+modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault(); // Sprječava stranicu da skoči na vrh zbog href="#"
+        const modalId = trigger.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.add('show');
@@ -333,7 +312,7 @@ closeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const modal = btn.closest('.modal');
         modal.classList.remove('show');
-        document.body.style.overflow = 'auto'; // Vraća skrolanje pozadine
+        document.body.style.overflow = 'auto'; 
     });
 });
 
@@ -345,11 +324,11 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// 3. FADE-IN ANIMACIJE NA SKROLANJE
+// 2. FADE-IN ANIMACIJE NA SKROLANJE
 const faders = document.querySelectorAll('.fade-in');
 
 const appearOptions = {
-    threshold: 0.15, // Aktivira se kad je 15% elementa vidljivo
+    threshold: 0.15, 
     rootMargin: "0px 0px -50px 0px"
 };
 
@@ -359,7 +338,7 @@ const appearOnScroll = new IntersectionObserver(function (entries, appearOnScrol
             return;
         } else {
             entry.target.classList.add('visible');
-            appearOnScroll.unobserve(entry.target); // Animira se samo jednom
+            appearOnScroll.unobserve(entry.target); 
         }
     });
 }, appearOptions);
