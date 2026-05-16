@@ -1483,3 +1483,86 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ===========================================
+   STILOVI ZA PARALELNE INTERAKTIVNE MAPE
+   =========================================== */
+
+/* Kontejner koji drži blokove paralelno */
+.interactive-maps-container {
+    display: flex;
+    flex-wrap: wrap; /* Da se prebace jedno ispod drugog na mobitelu */
+    gap: var(--razmak-l);
+    margin-top: var(--razmak-l);
+    justify-content: center; /* Centrira blokove ako su manji */
+}
+
+/* Pojedinačni blok sa slikom i naslovom */
+.map-block {
+    flex: 1; /* Uzimaju jednaku širinu */
+    min-width: 280px; /* Minimalna širina prije prebacivanja u novi red */
+    max-width: 500px; /* Da ne postanu preveliki na ogromnim ekranima */
+    background: var(--boja-kartica);
+    border: 1px solid var(--boja-border);
+    border-radius: var(--radijus);
+    padding: var(--razmak-m);
+    box-shadow: var(--sjena);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-block:hover {
+    transform: translateY(-5px); /* Blago podizanje na hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.map-block h3 {
+    font-family: var(--font-naslov);
+    color: var(--boja-primarna);
+    margin-bottom: var(--razmak-s);
+    font-size: 1.1rem;
+}
+
+/* Stil za samu sliku unutar bloka */
+.map-image {
+    width: 100%; /* Prilagođava se širini bloka */
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Ključno: Čini da se na mapi slike pojavljuje 'ruka' za klik */
+area.map-trigger {
+    cursor: pointer;
+    outline: none; /* Skriva ružni narandžasti okvir u nekim browserima */
+}
+
+/* ===========================================
+   POPRAVKE: Sužavanje sadržaja i Skoči na vrh
+   =========================================== */
+
+/* 1. Sužavanje glavnog sadržaja (da ne ide od ruba do ruba) */
+.sadrzaj-main {
+    max-width: 1100px; /* Ograničava maksimalnu širinu. Ako želiš još uže, stavi npr. 900px */
+    margin: 0 auto; /* Centrira cijeli sadržaj na sredinu ekrana */
+    padding: 0 var(--razmak-m); /* Osigurava da na mobitelu ne dodiruje ivice ekrana */
+}
+
+/* 2. Dugme Skoči na vrh (skriveno na vrhu, pojavljuje se na skrol) */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0; /* Potpuno nevidljivo na početku */
+    visibility: hidden; /* Browser ga ignoriše dok je nevidljivo */
+    transform: translateY(20px); /* Spušteno malo dolje za animaciju */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    z-index: 999; /* Da uvijek bude iznad ostalog sadržaja */
+}
+
+/* Ovu klasu Java dodaje tek kad korisnik skrola dolje */
+.back-to-top.visible {
+    opacity: 1; /* Postaje vidljivo */
+    visibility: visible;
+    transform: translateY(0); /* Vraća se na svoju normalnu poziciju */
+}
