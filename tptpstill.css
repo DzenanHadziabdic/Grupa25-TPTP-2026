@@ -186,7 +186,7 @@ footer {
 
     .side-nav {
         grid-column: 1;
-        position: static;
+        position: static!important;
     }
 
     main {
