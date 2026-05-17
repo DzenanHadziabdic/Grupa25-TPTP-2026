@@ -47,6 +47,8 @@ body.dark {
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Da header ne prekrije naslov pri skoku */
 }
 
 body {
@@ -746,26 +748,7 @@ textarea {
     color: #fff;
 }
 
-@media (max-width: 900px) {
-    .hero-visual {
-        display: none;
-    }
 
-    .page-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding: var(--razmak-l) var(--razmak-m);
-        min-height: 320px;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-}
 
 /* --- Dodan CSS za kartice i aside sekciju --- */
 
@@ -901,17 +884,6 @@ textarea {
     margin-top: 0.5rem;
 }
 
-@media (max-width: 900px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 
 /* Bookmark navigacija na vrhu stranice sadržaj.html */
@@ -1058,56 +1030,9 @@ tr:nth-child(even) td {
     box-shadow: var(--sjena);
 }
 
-/* ==========================================================================
-   1. VARIJABLE I RESET (Teme, Fontovi, Osnova)
-   ========================================================================== */
 
-:root {
-    --boja-primarna: #1a5c38;
-    --boja-akcent: #2fb862;
-    --boja-pozadina: #f4f7f4;
-    --boja-tekst: #1e2a22;
-    --boja-header: #0d3a22;
-    --boja-kartica: #ffffff;
-    --boja-border: #d0e4d7;
-    --boja-footer: #0d3a22;
-    --font-naslov: 'Montserrat', sans-serif;
-    --font-tijelo: 'Source Serif 4', serif;
-    --razmak-s: 0.5rem;
-    --razmak-m: 1rem;
-    --razmak-l: 2rem;
-    --razmak-xl: 4rem;
-    --radijus: 8px;
-    --sjena: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --tranzicija: 0.25s ease;
-}
 
-/* Tamni Mod */
-body.dark {
-    --boja-primarna: #2fb862;
-    --boja-akcent: #5be08a;
-    --boja-pozadina: #0f1a14;
-    --boja-tekst: #e8f5ee;
-    --boja-header: #071510;
-    --boja-kartica: #162410;
-    --boja-border: #2a4a32;
-    --boja-footer: #071510;
-}
 
-/* Reset osnova */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-    /* Da header ne prekrije naslov pri skoku */
-}
 
 
 /* ===========================================
