@@ -1016,7 +1016,7 @@ tr:nth-child(even) td {
 .tech-grid {
     display: grid;
     /* Automatski prilagođava broj kolona ovisno o širini ekrana */
-    
+
     /* AI DOKUMENTACIJA:
        Kreiranje potpuno responzivnog grida bez media query-ja implementirano je uz pomoć ChatGPT alata.
        Razumijem da: 'repeat(auto-fit, minmax(240px, 1fr))' automatski izračunava broj kolona.
@@ -1024,7 +1024,8 @@ tr:nth-child(even) td {
        dok '1fr' omogućava karticama da se ravnomjerno prošire i popune preostali slobodni prostor. */
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--razmak-l);
-    gap: var(--razmak-l); /* Korištenje globalne CSS varijable za konzistentan razmak */
+    gap: var(--razmak-l);
+    /* Korištenje globalne CSS varijable za konzistentan razmak */
     margin: var(--razmak-l) 0;
 }
 
@@ -1036,7 +1037,7 @@ tr:nth-child(even) td {
     text-align: center;
     box-shadow: var(--sjena);
     /* Glatki prelaz kod hovera */
-    
+
     /* Tranzicija omogućava da se promjene stilova (transformacija, sjena i boja bordera) 
        ne dese trenutno, već da se glatko odvijaju tokom 0.3 sekunde uz 'ease' krivu ubrzanja */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -1055,12 +1056,15 @@ tr:nth-child(even) td {
 
 .tech-icon {
     font-size: 3.5rem;
-    font-size: 3.5rem; /* Veličina emoji ikone izražena u relativnim rem jedinicama */
+    font-size: 3.5rem;
+    /* Veličina emoji ikone izražena u relativnim rem jedinicama */
     margin-bottom: var(--razmak-m);
     display: inline-block;
     transition: transform 0.4s ease;
-    display: inline-block; /* Neophodno kako bi transformacije (scale, rotate) mogle ispravno raditi */
-    transition: transform 0.4s ease; /* Glatki prelaz za animaciju same ikone */
+    display: inline-block;
+    /* Neophodno kako bi transformacije (scale, rotate) mogle ispravno raditi */
+    transition: transform 0.4s ease;
+    /* Glatki prelaz za animaciju same ikone */
 }
 
 /* Selektor koji cilja .tech-icon klasu isključivo kada je njena roditeljska .tech-card u hover stanju */
@@ -1081,8 +1085,10 @@ tr:nth-child(even) td {
     font-size: 0.9rem;
     opacity: 0.8;
     line-height: 1.6;
-    opacity: 0.8; /* Blago smanjujemo prozirnost teksta radi bolje vizuelne hijerarhije */
-    line-height: 1.6; /* Povećavamo razmak između redova radi lakšeg čitanja */
+    opacity: 0.8;
+    /* Blago smanjujemo prozirnost teksta radi bolje vizuelne hijerarhije */
+    line-height: 1.6;
+    /* Povećavamo razmak između redova radi lakšeg čitanja */
 }
 
 /* --- FAQ Harmonika (Accordion) --- */
@@ -1101,7 +1107,7 @@ tr:nth-child(even) td {
     margin-bottom: var(--razmak-m);
     border: 1px solid var(--boja-border);
     border-radius: var(--radijus);
-    
+
     /* AI DOKUMENTACIJA:
        Trik sa skrivanjem sadržaja i glatkim otvaranjem napisan je uz pomoć Claude AI-ja.
        Razumijem da: 'overflow: hidden' u kombinaciji sa 'max-height: 0' na elementu kćeri (.faq-answer) 
@@ -1113,31 +1119,36 @@ tr:nth-child(even) td {
 
 .faq-question {
     width: 100%;
-    width: 100%; /* Dugme se širi čitavom širinom kontejnera */
+    width: 100%;
+    /* Dugme se širi čitavom širinom kontejnera */
     text-align: left;
     padding: 1.2rem 1.5rem;
     background: transparent;
     border: none;
-    background: transparent; /* Uklanjamo fabričku sivu pozadinu HTML dugmeta */
-    border: none; /* Uklanjamo fabrički okvir dugmeta */
+    background: transparent;
+    /* Uklanjamo fabričku sivu pozadinu HTML dugmeta */
+    border: none;
+    /* Uklanjamo fabrički okvir dugmeta */
     font-family: var(--font-naslov);
     font-size: 1rem;
     font-weight: 700;
     color: var(--boja-primarna);
     cursor: pointer;
-    cursor: pointer; /* Mijenja kursor miša u ruku za klik */
-    
+    cursor: pointer;
+    /* Mijenja kursor miša u ruku za klik */
+
     /* Flexbox raspored: Poravnava tekst pitanja na lijevu, a plus (+) ikonu na desnu stranu ekrana */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-items: center; 
+    align-items: center;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .faq-question:hover {
     background: rgba(47, 184, 98, 0.05);
-    background: rgba(47, 184, 98, 0.05); /* Blaga zelena pozadina pri prelasku mišem */
+    background: rgba(47, 184, 98, 0.05);
+    /* Blaga zelena pozadina pri prelasku mišem */
 }
 
 .faq-icon {
@@ -1145,18 +1156,21 @@ tr:nth-child(even) td {
     font-weight: normal;
     color: var(--boja-akcent);
     transition: transform 0.3s ease;
-    transition: transform 0.3s ease; /* Priprema za rotaciju kada se klasa promijeni */
+    transition: transform 0.3s ease;
+    /* Priprema za rotaciju kada se klasa promijeni */
 }
 
 .faq-answer {
     max-height: 0;
     /* Sakriva tekst po defaultu */
-    max-height: 0; /* Početno skriveno stanje */
+    max-height: 0;
+    /* Početno skriveno stanje */
     overflow: hidden;
     /* Animacija otvaranja utiče na maksimalnu visinu i unutrašnji padding */
     transition: max-height 0.4s ease, padding 0.4s ease;
     padding: 0 1.5rem;
-    padding: 0 1.5rem; /* Padding odozgo i odozdo je 0 dok je harmonika zatvorena */
+    padding: 0 1.5rem;
+    /* Padding odozgo i odozdo je 0 dok je harmonika zatvorena */
     background: rgba(47, 184, 98, 0.015);
 }
 
@@ -1170,7 +1184,8 @@ tr:nth-child(even) td {
 /* Stanje kada JavaScript doda klasu 'active' na .faq-item */
 .faq-item.active .faq-question {
     color: var(--boja-akcent);
-    color: var(--boja-akcent); /* Naslov pitanja pozeleni */
+    color: var(--boja-akcent);
+    /* Naslov pitanja pozeleni */
 }
 
 .faq-item.active .faq-answer {
@@ -1181,8 +1196,9 @@ tr:nth-child(even) td {
        Korištenje 'max-height' umjesto 'height: auto' za CSS tranzicije preporučio je ChatGPT.
        Razumijem da: CSS ne može animirati 'height: auto'. Zato postavljamo proizvoljnu 'max-height: 400px' koja je 
        sigurno veća od našeg teksta, a browser će glatko animirati visinu od 0px do stvarne visine teksta unutar tog limita. */
-    max-height: 400px; 
-    padding: 0.5rem 1.5rem 1.5rem 1.5rem; /* Vraćamo padding odozgo i odozdo da tekst prodiše */
+    max-height: 400px;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    /* Vraćamo padding odozgo i odozdo da tekst prodiše */
 }
 
 .faq-item.active .faq-icon {
@@ -1204,16 +1220,19 @@ tr:nth-child(even) td {
 /* Linija na samom vrhu ekrana koja prati dokle je korisnik stigao sa čitanjem */
 .scroll-progress {
     position: fixed;
-    position: fixed; /* Fiksirano za ekran, ne mrda se prilikom skrolovanja */
+    position: fixed;
+    /* Fiksirano za ekran, ne mrda se prilikom skrolovanja */
     top: 0;
     left: 0;
     width: 0%;
-    width: 0%; /* JavaScript će dinamički mijenjati procenat širine od 0% do 100% */
+    width: 0%;
+    /* JavaScript će dinamički mijenjati procenat širine od 0% do 100% */
     height: 5px;
     /* Moderan preljev boja (gradijent) sa lijeve na desnu stranu */
     background: linear-gradient(90deg, var(--boja-akcent), #12e2a3);
     z-index: 9999;
-    z-index: 9999; /* Izuzetno visok sloj kako bi linija bila iznad apsolutno svih elemenata */
+    z-index: 9999;
+    /* Izuzetno visok sloj kako bi linija bila iznad apsolutno svih elemenata */
     transition: width 0.1s ease;
 }
 
@@ -1231,15 +1250,17 @@ tr:nth-child(even) td {
     background: var(--boja-kartica);
     border-radius: var(--radijus);
     overflow: hidden;
-    overflow: hidden; /* Sprečava uglove slike da izviru van zaobljenog okvira (.figure) */
+    overflow: hidden;
+    /* Sprečava uglove slike da izviru van zaobljenog okvira (.figure) */
     box-shadow: var(--sjena);
 }
 
 .gallery-grid img {
     width: 100%;
     height: 220px;
-    height: 220px; /* Sve slike u galeriji prinudno poprimaju identičnu visinu */
-    
+    height: 220px;
+    /* Sve slike u galeriji prinudno poprimaju identičnu visinu */
+
     /* AI DOKUMENTACIJA:
        Problem rastezanja i distorzije slika u galeriji riješen je uz pomoć GitHub Copilota.
        Razumijem da: 'object-fit: cover' djeluje slično kao background-size: cover. Slike zadržavaju 
@@ -1263,7 +1284,8 @@ tr:nth-child(even) td {
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 20px;
-    border-radius: 20px; /* Potpuno zaobljene ivice (pilula oblik) */
+    border-radius: 20px;
+    /* Potpuno zaobljene ivice (pilula oblik) */
     margin-top: 1rem;
     cursor: pointer;
     font-weight: bold;
@@ -1273,25 +1295,30 @@ tr:nth-child(even) td {
 .btn-more:hover {
     background: #259650;
     transform: translateY(-2px);
-    background: #259650; /* Tamnija nijansa zelene na hover */
-    transform: translateY(-2px); /* Blago odskakanje */
+    background: #259650;
+    /* Tamnija nijansa zelene na hover */
+    transform: translateY(-2px);
+    /* Blago odskakanje */
 }
 
 /* --- MODAL (Iskakući prozor) --- */
 /* MODALNI PROZORI (Iskakajući prozori za informacije) */
 .modal {
     display: none;
-    display: none; /* Početno skriveno iz DOM-a, JS mijenja u flex */
+    display: none;
+    /* Početno skriveno iz DOM-a, JS mijenja u flex */
     position: fixed;
     z-index: 10000;
-    z-index: 10000; /* Pozicionirano iznad navigacije i sadržaja */
+    z-index: 10000;
+    /* Pozicionirano iznad navigacije i sadržaja */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.6); /* Tamna poluprozirna pozadina iza modala */
-    
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Tamna poluprozirna pozadina iza modala */
+
     /* AI DOKUMENTACIJA:
        Moderni efekat zamućenja pozadine kreiran je uz pomoć ChatGPT-a.
        Razumijem da: 'backdrop-filter: blur(5px)' zamućuje elemente koji se nalaze iza samog modala,
@@ -1299,8 +1326,10 @@ tr:nth-child(even) td {
     backdrop-filter: blur(5px);
     align-items: center;
     justify-content: center;
-    align-items: center; /* Centriranje bijelog prozora vertikalno */
-    justify-content: center; /* Centriranje bijelog prozora horizontalno */
+    align-items: center;
+    /* Centriranje bijelog prozora vertikalno */
+    justify-content: center;
+    /* Centriranje bijelog prozora horizontalno */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1321,12 +1350,16 @@ tr:nth-child(even) td {
     max-height: 85vh;
     overflow-y: auto;
     position: relative;
-    width: 90%; /* Na manjim ekranima zauzima 90% širine uređaja */
-    max-height: 85vh; /* Ograničava visinu na 85% visine ekrana */
-    overflow-y: auto; /* Ukoliko ima previše teksta u modalu, pojavljuje se unutrašnji skrol bar */
-    position: relative; /* Neophodno radi apsolutnog pozicioniranja X dugmeta u odnosu na ovaj prozor */
+    width: 90%;
+    /* Na manjim ekranima zauzima 90% širine uređaja */
+    max-height: 85vh;
+    /* Ograničava visinu na 85% visine ekrana */
+    overflow-y: auto;
+    /* Ukoliko ima previše teksta u modalu, pojavljuje se unutrašnji skrol bar */
+    position: relative;
+    /* Neophodno radi apsolutnog pozicioniranja X dugmeta u odnosu na ovaj prozor */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    
+
     /* Efekat padanja: Početno je prozor pomjeren 30px prema gore */
     transform: translateY(-30px);
     transition: transform 0.3s ease;
@@ -1366,8 +1399,10 @@ tr:nth-child(even) td {
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    opacity: 0; /* Element je na početku nevidljiv */
-    transform: translateY(30px); /* Gurnut je 30px prema dole */
+    opacity: 0;
+    /* Element je na početku nevidljiv */
+    transform: translateY(30px);
+    /* Gurnut je 30px prema dole */
     /* Glatka tranzicija od 0.7 sekundi za pojavljivanje i dizanje elementa */
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
@@ -1376,8 +1411,10 @@ tr:nth-child(even) td {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-    opacity: 1; /* Postaje vidljiv */
-    transform: translateY(0); /* Vraća se na originalno mjesto */
+    opacity: 1;
+    /* Postaje vidljiv */
+    transform: translateY(0);
+    /* Vraća se na originalno mjesto */
 }
 
 
@@ -1392,7 +1429,7 @@ tr:nth-child(even) td {
 /* Kontejner koji drži dva bloka mapa paralelno na desktopu */
 .interactive-maps-container {
     display: flex;
-    
+
     /* AI DOKUMENTACIJA:
        Automatsko prebacivanje blokova mapa kreirano je uz pomoć Claude AI-ja.
        Razumijem da: 'flex-wrap: wrap' omogućava elementima da se spuste jedan ispod drugog
@@ -1403,7 +1440,8 @@ tr:nth-child(even) td {
     margin-top: var(--razmak-l);
     justify-content: center;
     /* Centrira blokove ako su manji */
-    justify-content: center; /* Centrira mape horizontalno ako preostane prostora */
+    justify-content: center;
+    /* Centrira mape horizontalno ako preostane prostora */
 }
 
 /* Pojedinačni blok sa slikom i naslovom */
@@ -1443,7 +1481,8 @@ tr:nth-child(even) td {
     width: 100%;
     /* Prilagođava se širini bloka */
     height: auto;
-    height: auto; /* Automatski prilagođava visinu kako ne bi narušio proporciju slike */
+    height: auto;
+    /* Automatski prilagođava visinu kako ne bi narušio proporciju slike */
     border-radius: 4px;
     display: block;
 }
@@ -1454,8 +1493,10 @@ area.map-trigger {
     cursor: pointer;
     outline: none;
     /* Skriva ružni narandžasti okvir u nekim browserima */
-    cursor: pointer; /* Kada korisnik pređe preko nevidljivog područja na slici, kursor postaje ruka */
-    outline: none; /* Skriva fabrički plavi/narandžasti okvir oko kliknutog područja mape */
+    cursor: pointer;
+    /* Kada korisnik pređe preko nevidljivog područja na slici, kursor postaje ruka */
+    outline: none;
+    /* Skriva fabrički plavi/narandžasti okvir oko kliknutog područja mape */
 }
 
 /* ===========================================
@@ -1470,8 +1511,9 @@ area.map-trigger {
 .sadrzaj-main {
     max-width: 1100px;
     /* Ograničava maksimalnu širinu. Ako želiš još uže, stavi npr. 900px */
-    max-width: 1100px; /* Sadržaj stranice nikada neće biti širi od 1100px na velikim monitorima */
-    
+    max-width: 1100px;
+    /* Sadržaj stranice nikada neće biti širi od 1100px na velikim monitorima */
+
     /* AI DOKUMENTACIJA:
        Trik za centriranje kompletnog layouta napisan je ručno, a provjeren kroz GitHub Copilot.
        Razumijem da: 'margin: 0 auto' automatski dijeli preostali slobodni prostor ekrana na lijevu i desnu marginu,
@@ -1480,7 +1522,8 @@ area.map-trigger {
     /* Centrira cijeli sadržaj na sredinu ekrana */
     padding: 0 var(--razmak-m);
     /* Osigurava da na mobitelu ne dodiruje ivice ekrana */
-    padding: 0 var(--razmak-m); /* Bezbjednosni prostor sa strana na ekranima mobilnih telefona */
+    padding: 0 var(--razmak-m);
+    /* Bezbjednosni prostor sa strana na ekranima mobilnih telefona */
 }
 
 /* 2. Dugme Skoči na vrh (skriveno na vrhu, pojavljuje se na skrol) */
@@ -1489,7 +1532,7 @@ area.map-trigger {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    
+
     /* Početno skriveno stanje kroz tri svojstva radi stabilnosti animacija */
     opacity: 0;
     /* Potpuno nevidljivo na početku */
@@ -1497,12 +1540,14 @@ area.map-trigger {
     /* Browser ga ignoriše dok je nevidljivo */
     transform: translateY(20px);
     /* Spušteno malo dolje za animaciju */
-    transform: translateY(20px); /* Gurnuto blago nadolje */
-    
+    transform: translateY(20px);
+    /* Gurnuto blago nadolje */
+
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
     z-index: 999;
     /* Da uvijek bude iznad ostalog sadržaja */
-    z-index: 999; /* Osigurava da dugme lebdi iznad sadržaja stranice */
+    z-index: 999;
+    /* Osigurava da dugme lebdi iznad sadržaja stranice */
     background: var(--boja-primarna);
     color: #fff;
     padding: 0.6rem 1rem;
@@ -1520,5 +1565,6 @@ area.map-trigger {
     visibility: visible;
     transform: translateY(0);
     /* Vraća se na svoju normalnu poziciju */
-    transform: translateY(0); /* Vraća se na svoju tačnu poziciju (bottom: 30px) uz glatku animaciju */
+    transform: translateY(0);
+    /* Vraća se na svoju tačnu poziciju (bottom: 30px) uz glatku animaciju */
 }
