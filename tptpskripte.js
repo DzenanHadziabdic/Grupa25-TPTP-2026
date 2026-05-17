@@ -419,3 +419,17 @@ const appearOnScroll = new IntersectionObserver(function (entries, appearOnScrol
 faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const filter = this.getAttribute('data-filter');
+        
+        // Pronađi prvu karticu te kategorije
+        const targetCard = document.querySelector(`.card[data-category="${filter}"]`);
+        
+        if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+});
