@@ -1000,10 +1000,6 @@ tr:nth-child(even) td {
 
 
 
-
-
-
-
 /* ===========================================
    NOVI STILOVI - KARTICE TEHNOLOGIJA I FAQ
    =========================================== */
@@ -1275,30 +1271,6 @@ tr:nth-child(even) td {
     transform: translateY(0);
 }
 
-
-/* ===========================================
-   NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
-   =========================================== */
-
-
-
-/* --- Popravak Galerije (Centriranje i iste proporcije slika) --- */
-
-
-
-
-
-/* --- Fade-In Animacija za skrolanje --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* ===========================================
    STILOVI ZA PARALELNE INTERAKTIVNE MAPE
