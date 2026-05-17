@@ -1000,16 +1000,25 @@ tr:nth-child(even) td {
 
 
 
-/* ===========================================
-   NOVI STILOVI - KARTICE TEHNOLOGIJA I FAQ
-   =========================================== */
+/* ==========================================================================
+  
+   ZADUŽENJE ZA CSS ARHITEKTURU: Dženan Ćejvanović (sadrzaj.html)
+   ========================================================================== */
 
-/* --- Moderne kartice za OIE tehnologije --- */
+/* ==========================================================================
+   1. MODERNE KARTICE ZA OIE TEHNOLOGIJE (SEKCIJA SAKRIVENA/PRIKAZANA KROZ GRID)
+   ========================================================================== */
+
 .tech-grid {
     display: grid;
-    /* Automatski prilagođava broj kolona ovisno o širini ekrana */
+    
+    /* AI DOKUMENTACIJA:
+       Kreiranje potpuno responzivnog grida bez media query-ja implementirano je uz pomoć ChatGPT alata.
+       Razumijem da: 'repeat(auto-fit, minmax(240px, 1fr))' automatski izračunava broj kolona.
+       Browser će ugurati onoliko kartica u red koliko može, pazeći da nijedna ne bude uža od 240px,
+       dok '1fr' omogućava karticama da se ravnomjerno prošire i popune preostali slobodni prostor. */
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--razmak-l);
+    gap: var(--razmak-l); /* Korištenje globalne CSS varijable za konzistentan razmak */
     margin: var(--razmak-l) 0;
 }
 
@@ -1020,27 +1029,33 @@ tr:nth-child(even) td {
     border: 1px solid var(--boja-border);
     text-align: center;
     box-shadow: var(--sjena);
-    /* Glatki prelaz kod hovera */
+    
+    /* Tranzicija omogućava da se promjene stilova (transformacija, sjena i boja bordera) 
+       ne dese trenutno, već da se glatko odvijaju tokom 0.3 sekunde uz 'ease' krivu ubrzanja */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Efekti koji se aktiviraju kada korisnik pređe mišem iznad kartice (Hover stanje) */
 .tech-card:hover {
+    /* Pomijera karticu prema gore za 8 piksela duž Y ose, stvarajući 3D efekat lebdenja */
     transform: translateY(-8px);
-    /* Podizanje kartice */
+    /* Pojačavamo sjenu ispod kartice i dodajemo blagu zelenu prozirnu boju (rgba) */
     box-shadow: 0 12px 30px rgba(47, 184, 98, 0.15);
+    /* Border mijenja boju u našu glavnu akcentnu zelenu boju */
     border-color: var(--boja-akcent);
 }
 
 .tech-icon {
-    font-size: 3.5rem;
+    font-size: 3.5rem; /* Veličina emoji ikone izražena u relativnim rem jedinicama */
     margin-bottom: var(--razmak-m);
-    display: inline-block;
-    transition: transform 0.4s ease;
+    display: inline-block; /* Neophodno kako bi transformacije (scale, rotate) mogle ispravno raditi */
+    transition: transform 0.4s ease; /* Glatki prelaz za animaciju same ikone */
 }
 
+/* Selektor koji cilja .tech-icon klasu isključivo kada je njena roditeljska .tech-card u hover stanju */
 .tech-card:hover .tech-icon {
+    /* Istovremeno povećava ikonu za 10% (scale 1.1) i rotira je u desno za 5 stepeni (rotate) */
     transform: scale(1.1) rotate(5deg);
-    /* Efekat ikone */
 }
 
 .tech-card h3 {
@@ -1052,11 +1067,15 @@ tr:nth-child(even) td {
 
 .tech-card p {
     font-size: 0.9rem;
-    opacity: 0.8;
-    line-height: 1.6;
+    opacity: 0.8; /* Blago smanjujemo prozirnost teksta radi bolje vizuelne hijerarhije */
+    line-height: 1.6; /* Povećavamo razmak između redova radi lakšeg čitanja */
 }
 
-/* --- FAQ Harmonika (Accordion) --- */
+
+/* ==========================================================================
+   2. FAQ HARMONIKA (ACCORDION STILOVI)
+   ========================================================================== */
+
 .faq-container {
     max-width: 850px;
     margin: var(--razmak-m) 0;
@@ -1067,45 +1086,51 @@ tr:nth-child(even) td {
     margin-bottom: var(--razmak-m);
     border: 1px solid var(--boja-border);
     border-radius: var(--radijus);
+    
+    /* AI DOKUMENTACIJA:
+       Trik sa skrivanjem sadržaja i glatkim otvaranjem napisan je uz pomoć Claude AI-ja.
+       Razumijem da: 'overflow: hidden' u kombinaciji sa 'max-height: 0' na elementu kćeri (.faq-answer) 
+       u potpunosti odsijeca i sakriva sav tekst koji se nalazi unutar zatvorenog FAQ elementa. */
     overflow: hidden;
-    /* Ne dozvoljava tekstu da viri dok je zatvoreno */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .faq-question {
-    width: 100%;
+    width: 100%; /* Dugme se širi čitavom širinom kontejnera */
     text-align: left;
     padding: 1.2rem 1.5rem;
-    background: transparent;
-    border: none;
+    background: transparent; /* Uklanjamo fabričku sivu pozadinu HTML dugmeta */
+    border: none; /* Uklanjamo fabrički okvir dugmeta */
     font-family: var(--font-naslov);
     font-size: 1rem;
     font-weight: 700;
     color: var(--boja-primarna);
-    cursor: pointer;
+    cursor: pointer; /* Mijenja kursor miša u ruku za klik */
+    
+    /* Flexbox raspored: Poravnava tekst pitanja na lijevu, a plus (+) ikonu na desnu stranu ekrana */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
     transition: background 0.3s ease, color 0.3s ease;
 }
 
 .faq-question:hover {
-    background: rgba(47, 184, 98, 0.05);
+    background: rgba(47, 184, 98, 0.05); /* Blaga zelena pozadina pri prelasku mišem */
 }
 
 .faq-icon {
     font-size: 1.4rem;
     font-weight: normal;
     color: var(--boja-akcent);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Priprema za rotaciju kada se klasa promijeni */
 }
 
 .faq-answer {
-    max-height: 0;
-    /* Sakriva tekst po defaultu */
+    max-height: 0; /* Početno skriveno stanje */
     overflow: hidden;
+    /* Animacija otvaranja utiče na maksimalnu visinu i unutrašnji padding */
     transition: max-height 0.4s ease, padding 0.4s ease;
-    padding: 0 1.5rem;
+    padding: 0 1.5rem; /* Padding odozgo i odozdo je 0 dok je harmonika zatvorena */
     background: rgba(47, 184, 98, 0.015);
 }
 
@@ -1115,41 +1140,44 @@ tr:nth-child(even) td {
     margin: 0;
 }
 
-/* Stanje kada je FAQ otvoren (JS dodaje klasu 'active') */
+/* Stanje kada JavaScript doda klasu 'active' na .faq-item */
 .faq-item.active .faq-question {
-    color: var(--boja-akcent);
+    color: var(--boja-akcent); /* Naslov pitanja pozeleni */
 }
 
 .faq-item.active .faq-answer {
-    max-height: 400px;
-    /* Dovoljno prostora da se tekst otvori */
-    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    /* AI DOKUMENTACIJA:
+       Korištenje 'max-height' umjesto 'height: auto' za CSS tranzicije preporučio je ChatGPT.
+       Razumijem da: CSS ne može animirati 'height: auto'. Zato postavljamo proizvoljnu 'max-height: 400px' koja je 
+       sigurno veća od našeg teksta, a browser će glatko animirati visinu od 0px do stvarne visine teksta unutar tog limita. */
+    max-height: 400px; 
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem; /* Vraćamo padding odozgo i odozdo da tekst prodiše */
 }
 
 .faq-item.active .faq-icon {
+    /* Rotira ikonicu plus (+) za 45 stepeni, čime vizuelno dobijamo znak X (zatvori) */
     transform: rotate(45deg);
-    /* Pretvara plus u X */
 }
 
 
+/* ==========================================================================
+   3. NAPREDNE JS/CSS FUNKCIJE: PROGRESS BAR, MODALI I MULTIMEDIJA
+   ========================================================================== */
 
-/* ===========================================
-   NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
-   =========================================== */
-
-/* --- Progress Bar za čitanje na vrhu --- */
+/* Linija na samom vrhu ekrana koja prati dokle je korisnik stigao sa čitanjem */
 .scroll-progress {
-    position: fixed;
+    position: fixed; /* Fiksirano za ekran, ne mrda se prilikom skrolovanja */
     top: 0;
     left: 0;
-    width: 0%;
+    width: 0%; /* JavaScript će dinamički mijenjati procenat širine od 0% do 100% */
     height: 5px;
+    /* Moderan preljev boja (gradijent) sa lijeve na desnu stranu */
     background: linear-gradient(90deg, var(--boja-akcent), #12e2a3);
-    z-index: 9999;
+    z-index: 9999; /* Izuzetno visok sloj kako bi linija bila iznad apsolutno svih elemenata */
     transition: width 0.1s ease;
 }
 
-/* --- Popravak Galerije (Centriranje i iste proporcije slika) --- */
+/* Popravak Galerije slika kroz CSS Grid */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1161,30 +1189,35 @@ tr:nth-child(even) td {
     text-align: center;
     background: var(--boja-kartica);
     border-radius: var(--radijus);
-    overflow: hidden;
+    overflow: hidden; /* Sprečava uglove slike da izviru van zaobljenog okvira (.figure) */
     box-shadow: var(--sjena);
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 220px;
+    height: 220px; /* Sve slike u galeriji prinudno poprimaju identičnu visinu */
+    
+    /* AI DOKUMENTACIJA:
+       Problem rastezanja i distorzije slika u galeriji riješen je uz pomoć GitHub Copilota.
+       Razumijem da: 'object-fit: cover' djeluje slično kao background-size: cover. Slike zadržavaju 
+       svoje proporcije bez obzira na zadane dimenzije (220px), a višak piksela se automatski opreže. */
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
 }
 
-
+/* Blago zumiranje slike unutar kartice kada se pređe mišem preko figure elementa */
 .gallery-grid figure:hover img {
     transform: scale(1.05);
 }
 
-/* --- Dugme 'Saznaj više' --- */
+/* Dugme 'Saznaj više' unutar kartica i mapa */
 .btn-more {
     background: var(--boja-akcent);
     color: #fff;
     border: none;
     padding: 0.6rem 1.2rem;
-    border-radius: 20px;
+    border-radius: 20px; /* Potpuno zaobljene ivice (pilula oblik) */
     margin-top: 1rem;
     cursor: pointer;
     font-weight: bold;
@@ -1192,46 +1225,56 @@ tr:nth-child(even) td {
 }
 
 .btn-more:hover {
-    background: #259650;
-    transform: translateY(-2px);
+    background: #259650; /* Tamnija nijansa zelene na hover */
+    transform: translateY(-2px); /* Blago odskakanje */
 }
 
-/* --- MODAL (Iskakući prozor) --- */
+/* MODALNI PROZORI (Iskakajući prozori za informacije) */
 .modal {
-    display: none;
+    display: none; /* Početno skriveno iz DOM-a, JS mijenja u flex */
     position: fixed;
-    z-index: 10000;
+    z-index: 10000; /* Pozicionirano iznad navigacije i sadržaja */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Tamna poluprozirna pozadina iza modala */
+    
+    /* AI DOKUMENTACIJA:
+       Moderni efekat zamućenja pozadine kreiran je uz pomoć ChatGPT-a.
+       Razumijem da: 'backdrop-filter: blur(5px)' zamućuje elemente koji se nalaze iza samog modala,
+       stvarajući vrhunski "glassmorphism" efekat dubine u pretraživaču. */
     backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centriranje bijelog prozora vertikalno */
+    justify-content: center; /* Centriranje bijelog prozora horizontalno */
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
+/* Klasa koju JS dodaje za prikazivanje modala */
 .modal.show {
     display: flex;
     opacity: 1;
 }
 
+/* Sadržajni bijeli prozor unutar modala */
 .modal-content {
     background-color: var(--boja-pozadina);
     padding: 2rem;
     border-radius: var(--radijus);
     max-width: 600px;
-    width: 90%;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
+    width: 90%; /* Na manjim ekranima zauzima 90% širine uređaja */
+    max-height: 85vh; /* Ograničava visinu na 85% visine ekrana */
+    overflow-y: auto; /* Ukoliko ima previše teksta u modalu, pojavljuje se unutrašnji skrol bar */
+    position: relative; /* Neophodno radi apsolutnog pozicioniranja X dugmeta u odnosu na ovaj prozor */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    
+    /* Efekat padanja: Početno je prozor pomjeren 30px prema gore */
     transform: translateY(-30px);
     transition: transform 0.3s ease;
 }
 
+/* Kada se modal prikaže, sadržaj glatko pada na svoju nultu poziciju */
 .modal.show .modal-content {
     transform: translateY(0);
 }
@@ -1244,6 +1287,7 @@ tr:nth-child(even) td {
     margin: 1rem 0;
 }
 
+/* Dugme X za zatvaranje modala */
 .close-modal {
     position: absolute;
     top: 15px;
@@ -1259,42 +1303,45 @@ tr:nth-child(even) td {
     color: var(--boja-akcent);
 }
 
-/* --- Fade-In Animacija za skrolanje --- */
+/* FADE-IN ANIMACIJE NA SKROLANJE */
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 0; /* Element je na početku nevidljiv */
+    transform: translateY(30px); /* Gurnut je 30px prema dole */
+    /* Glatka tranzicija od 0.7 sekundi za pojavljivanje i dizanje elementa */
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
+/* Klasa koju IntersectionObserver u JS-u dodaje elementu kada uđe u vidno polje */
 .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Postaje vidljiv */
+    transform: translateY(0); /* Vraća se na originalno mjesto */
 }
 
 
-/* ===========================================
-   STILOVI ZA PARALELNE INTERAKTIVNE MAPE
-   =========================================== */
+/* ==========================================================================
+   4. STILOVI ZA PARALELNE INTERAKTIVNE MAPE (FLEXBOX LAYOUT)
+   ========================================================================= */
 
-/* Kontejner koji drži blokove paralelno */
+/* Kontejner koji drži dva bloka mapa paralelno na desktopu */
 .interactive-maps-container {
     display: flex;
+    
+    /* AI DOKUMENTACIJA:
+       Automatsko prebacivanje blokova mapa kreirano je uz pomoć Claude AI-ja.
+       Razumijem da: 'flex-wrap: wrap' omogućava elementima da se spuste jedan ispod drugog
+       onog trenutka kada širina ekrana postane premala da bi stajali uporedo (responzivnost za mobitele). */
     flex-wrap: wrap;
-    /* Da se prebace jedno ispod drugog na mobitelu */
     gap: var(--razmak-l);
     margin-top: var(--razmak-l);
-    justify-content: center;
-    /* Centrira blokove ako su manji */
+    justify-content: center; /* Centrira mape horizontalno ako preostane prostora */
 }
 
-/* Pojedinačni blok sa slikom i naslovom */
+/* Pojedinačni blok (okvir) u kojem se nalazi slika i mapa */
 .map-block {
+    /* Širi se ravnopravno u odnosu na druge blokove, minimalno traži 280px, a maksimalno ide do 500px */
     flex: 1;
-    /* Uzimaju jednaku širinu */
     min-width: 280px;
-    /* Minimalna širina prije prebacivanja u novi red */
     max-width: 500px;
-    /* Da ne postanu preveliki na ogromnim ekranima */
     background: var(--boja-kartica);
     border: 1px solid var(--boja-border);
     border-radius: var(--radijus);
@@ -1306,7 +1353,6 @@ tr:nth-child(even) td {
 
 .map-block:hover {
     transform: translateY(-5px);
-    /* Blago podizanje na hover */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -1317,50 +1363,48 @@ tr:nth-child(even) td {
     font-size: 1.1rem;
 }
 
-/* Stil za samu sliku unutar bloka */
 .map-image {
     width: 100%;
-    /* Prilagođava se širini bloka */
-    height: auto;
+    height: auto; /* Automatski prilagođava visinu kako ne bi narušio proporciju slike */
     border-radius: 4px;
     display: block;
 }
 
-/* Ključno: Čini da se na mapi slike pojavljuje 'ruka' za klik */
+/* Ključno pravilo za HTML <map> i <area> elemente */
 area.map-trigger {
-    cursor: pointer;
-    outline: none;
-    /* Skriva ružni narandžasti okvir u nekim browserima */
+    cursor: pointer; /* Kada korisnik pređe preko nevidljivog područja na slici, kursor postaje ruka */
+    outline: none; /* Skriva fabrički plavi/narandžasti okvir oko kliknutog područja mape */
 }
 
-/* ===========================================
-   POPRAVKE: Sužavanje sadržaja i Skoči na vrh
-   =========================================== */
 
-/* 1. Sužavanje glavnog sadržaja (da ne ide od ruba do ruba) */
+/* ==========================================================================
+   5. RESTRUKTURIRANJE I SUŽAVANJE GLAVNOG SADRŽAJA
+   ========================================================================== */
+
 .sadrzaj-main {
-    max-width: 1100px;
-    /* Ograničava maksimalnu širinu. Ako želiš još uže, stavi npr. 900px */
+    max-width: 1100px; /* Sadržaj stranice nikada neće biti širi od 1100px na velikim monitorima */
+    
+    /* AI DOKUMENTACIJA:
+       Trik za centriranje kompletnog layouta napisan je ručno, a provjeren kroz GitHub Copilot.
+       Razumijem da: 'margin: 0 auto' automatski dijeli preostali slobodni prostor ekrana na lijevu i desnu marginu,
+       čime se čitav sajt pozicionira tačno na sredinu ekrana, sprečavajući rastezanje teksta od ivice do ivice. */
     margin: 0 auto;
-    /* Centrira cijeli sadržaj na sredinu ekrana */
-    padding: 0 var(--razmak-m);
-    /* Osigurava da na mobitelu ne dodiruje ivice ekrana */
+    padding: 0 var(--razmak-m); /* Bezbjednosni prostor sa strana na ekranima mobilnih telefona */
 }
 
-/* 2. Dugme Skoči na vrh (skriveno na vrhu, pojavljuje se na skrol) */
+/* Dugme "Skoči na vrh" (Back to Top) */
 .back-to-top {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    
+    /* Početno skriveno stanje kroz tri svojstva radi stabilnosti animacija */
     opacity: 0;
-    /* Potpuno nevidljivo na početku */
     visibility: hidden;
-    /* Browser ga ignoriše dok je nevidljivo */
-    transform: translateY(20px);
-    /* Spušteno malo dolje za animaciju */
+    transform: translateY(20px); /* Gurnuto blago nadolje */
+    
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
-    z-index: 999;
-    /* Da uvijek bude iznad ostalog sadržaja */
+    z-index: 999; /* Osigurava da dugme lebdi iznad sadržaja stranice */
     background: var(--boja-primarna);
     color: #fff;
     padding: 0.6rem 1rem;
@@ -1370,11 +1414,9 @@ area.map-trigger {
     box-shadow: var(--sjena);
 }
 
-/* Ovu klasu Java dodaje tek kad korisnik skrola dolje */
+/* Klasa koju aktivira JavaScript skrolovanjem preko 400px */
 .back-to-top.visible {
     opacity: 1;
-    /* Postaje vidljivo */
     visibility: visible;
-    transform: translateY(0);
-    /* Vraća se na svoju normalnu poziciju */
+    transform: translateY(0); /* Vraća se na svoju tačnu poziciju (bottom: 30px) uz glatku animaciju */
 }
