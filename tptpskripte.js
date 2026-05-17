@@ -204,36 +204,61 @@ if (darkToggle) {
 }
     */
 
-/* ===========================================
-   DODATAK ZA NAVIGACIJU I INTERAKCIJU u sadrzaju
-   =========================================== */
+/* ==========================================================================
 
-// 1. Hamburger meni za mobilne uređaje
+   ZADUŽENJE ZA JS LOGIKU: Student Dženan Ćejvanović (sadrzaj.html)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. HAMBURGER MENI ZA MOBILNE UREĐAJE
+   ========================================================================== */
+
+// Selektujemo dugme (hamburger) i navigacijski meni iz HTML-a preko njihovih ID-ova
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
 
+// Provjeravamo da li elementi uopšte postoje na stranici kako bismo spriječili JS greške
 if (hamburger && mobileNav) {
+    // Slušamo klik na hamburger dugme
     hamburger.addEventListener('click', () => {
+        // Toggle metoda dodaje klasu 'open' ako ne postoji, ili je briše ako već postoji
         mobileNav.classList.toggle('open');
-        // Promjena ikone iz ☰ u X
+        
+        /* AI DOKUMENTACIJA:
+           Ovaj dio sa ternarnim operatorom za promjenu ikone sam optimizovao/la uz pomoć ChatGPT-a.
+           Razumijem da: linija ispod mijenja tekstualni sadržaj dugmeta (innerHTML). Ako meni ima klasu 'open',
+           ispisuje se znak '&times;' (što je simbol za X), a ako nema, vraća se početni simbol za meni '&#9776;' (tri crte).
+        */
         hamburger.innerHTML = mobileNav.classList.contains('open') ? '&times;' : '&#9776;';
     });
 }
 
-// Zatvori mobilni meni kada se klikne na link
+// Selektujemo sve linkove unutar mobilne navigacije
 document.querySelectorAll('.mobile-nav a').forEach(link => {
+    // Kada korisnik klikne na bilo koji link u mobilnom meniju, meni se automatski zatvara
     link.addEventListener('click', () => {
         if (mobileNav) mobileNav.classList.remove('open');
-        if (hamburger) hamburger.innerHTML = '&#9776;';
+        if (hamburger) hamburger.innerHTML = '&#9776;'; // Vraćamo ikonu na tri crte
     });
 });
 
 
-// 2. "Skoči na vrh" (Back to Top) dugme
+/* ==========================================================================
+   2. "SKOČI NA VRH" (BACK TO TOP) DUGME
+   ========================================================================== */
+
+// Selektujemo dugme za povratak na vrh stranice
 const backToTopBtn = document.getElementById('backToTop');
 
+// Pratimo skrolovanje prozora (window) u realnom vremenu
 window.addEventListener('scroll', () => {
     if (backToTopBtn) {
+        /* AI DOKUMENTACIJA:
+           Logiku provjere pozicije skrola sam kreirao/la uz pomoć Claude AI alata.
+           Razumijem da: 'window.scrollY' predstavlja broj piksela za koliko je stranica sklovana nadolje.
+           Ako je korisnik sklovao više od 400px, dugmetu se dodaje klasa 'visible' (koja ga prikazuje kroz CSS),
+           u suprotnom se ta klasa uklanja i dugme ponovo postaje nevidljivo.
+        */
         if (window.scrollY > 400) {
             backToTopBtn.classList.add('visible');
         } else {
@@ -243,21 +268,34 @@ window.addEventListener('scroll', () => {
 });
 
 
-// 3. Aktivna klasa za Bookmark Navigaciju
+/* ==========================================================================
+   3. AKTIVNA KLASA ZA BOOKMARK NAVIGACIJU
+   ========================================================================== */
+
+// Selektujemo sve sekcije koje imaju definisan ID atribut i sve linkove unutar bookmark navigacije
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.bookmark-nav a');
 
 window.addEventListener('scroll', () => {
     let current = '';
+
+    /* AI DOKUMENTACIJA:
+       Proračun aktivne sekcije tokom skrolovanja je napisan uz pomoć Claude alata jer je logika bila kompleksna.
+       Razumijem da: petlja prolazi kroz sve sekcije i provjerava 'section.offsetTop' (udaljenost sekcije od vrha stranice).
+       Oduzimanjem 120px pravimo "offset/bfer" kako bi se klasa promijenila malo prije nego što sekcija dotakne sam vrh ekrana.
+       'pageYOffset' (ili scrollY) nam govori trenutnu poziciju korisnika.
+    */
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (pageYOffset >= sectionTop - 120) {
-            current = section.getAttribute('id');
+            current = section.getAttribute('id'); // Uzimamo ID sekcije u kojoj se korisnik trenutno nalazi
         }
     });
 
+    // Prolazimo kroz sve linkove u navigaciji i ažuriramo njihovu klasu
     navLinks.forEach(link => {
-        link.classList.remove('active');
+        link.classList.remove('active'); // Prvo brišemo aktivnu klasu sa svih linkova
+        // Ako href atribut linka sadrži ID trenutne sekcije, tom linku dodajemo klasu 'active'
         if (link.getAttribute('href').includes(current)) {
             link.classList.add('active');
         }
@@ -265,20 +303,30 @@ window.addEventListener('scroll', () => {
 });
 
 
-/* ===========================================
-   LOGIKA ZA FAQ (Harmonika)
-   =========================================== */
+/* ==========================================================================
+   4. LOGIKA ZA FAQ (HARMONIKA / ACCORDION)
+   ========================================================================== */
+
+// Selektujemo sva FAQ pitanja (dugmad/naslove) na stranici
 const faqQuestions = document.querySelectorAll('.faq-question');
 
 faqQuestions.forEach(btn => {
     btn.addEventListener('click', () => {
+        // Pronalazimo roditeljski element kliknutog dugmeta (to je div sa klasom .faq-item)
         const faqItem = btn.parentElement;
+        // Provjeravamo da li je taj element već otvoren (da li ima klasu 'active')
         const isActive = faqItem.classList.contains('active');
 
+        /* AI DOKUMENTACIJA:
+           Ovaj dio koda koji pravi "pravu harmoniku" (zatvara sve ostale stavke kada se jedna otvori) implementiran je uz pomoć ChatGPT-a.
+           Razumijem da: ova unutrašnja petlja prolazi kroz apsolutno sve '.faq-item' elemente na stranici i preventivno im 
+           uklanja klasu 'active'. Na taj način osiguravamo da samo jedna stavka može biti otvorena u isto vrijeme.
+        */
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
 
+        // Ako stavka na koju je kliknuto nije bila aktivna, sada joj dodajemo klasu 'active' da se otvori
         if (!isActive) {
             faqItem.classList.add('active');
         }
@@ -286,63 +334,88 @@ faqQuestions.forEach(btn => {
 });
 
 
-/* ===========================================
-   NAPREDNE FUNKCIJE: Modali i Animacije
-   =========================================== */
+/* ==========================================================================
+   5. MODALNI PROZORI (ISKAKUĆI PROZORI ZA INTERAKTIVNE MAPE)
+   ========================================================================== */
 
-// 1. MODALI (Iskakući prozori)
+// Selektujemo sve okidače modala (dugmad i klikabilna područja na mapi) te same modale i dugmad za zatvaranje
 const modalTriggers = document.querySelectorAll('.btn-more, .map-trigger');
 const modals = document.querySelectorAll('.modal');
 const closeBtns = document.querySelectorAll('.close-modal');
 
 modalTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
-        e.preventDefault(); // Sprječava stranicu da skoči na vrh zbog href="#"
+        // e.preventDefault() zaustavlja podrazumijevano ponašanje pretraživača (npr. skakanje stranice na vrh zbog href="#")
+        e.preventDefault(); 
+        
+        /* AI DOKUMENTACIJA:
+           Povezivanje klikabilne mape sa modalnim prozorima preko custom data atributa predložio je ChatGPT.
+           Razumijem da: 'trigger.getAttribute('data-modal')' čita vrijednost atributa (npr. 'modal-solar').
+           Zatim preko tog ID-a pronalazimo tačan modal u HTML-u i dodajemo mu klasu 'show' koja ga kroz CSS čini vidljivim.
+           'document.body.style.overflow = 'hidden'' privremeno isključuje skrolovanje glavne stranice dok je modal otvoren.
+        */
         const modalId = trigger.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Zabranjuje skrolanje pozadine
+            document.body.style.overflow = 'hidden'; 
         }
     });
 });
 
-// Zatvaranje na X
+// Zatvaranje modalnog prozora klikom na dugme "X"
 closeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+        // '.closest('.modal')' ide uzvodno kroz DOM stablo i pronalazi najbliži modal u kojem se to X dugme nalazi
         const modal = btn.closest('.modal');
         modal.classList.remove('show');
-        document.body.style.overflow = 'auto'; 
+        document.body.style.overflow = 'auto'; // Ponovo omogućavamo skrolovanje stranice
     });
 });
 
-// Zatvaranje klikom izvan prozora
+// Zatvaranje modalnog prozora klikom bilo gdje van sadržaja modala (u tamnu pozadinu)
 window.addEventListener('click', (e) => {
+    // Ako je cilj klika (e.target) upravo cijeli modalni kontejner (pozadina), a ne prozor sa tekstom
     if (e.target.classList.contains('modal')) {
         e.target.classList.remove('show');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'; // Vraćamo skrolovanje pozadine
     }
 });
 
-// 2. FADE-IN ANIMACIJE NA SKROLANJE
+
+/* ==========================================================================
+   6. FADE-IN ANIMACIJE NA SKROLANJE (INTERSECTION OBSERVER)
+   ========================================================================== */
+
+// Selektujemo sve elemente koji na sebi imaju klasu 'fade-in'
 const faders = document.querySelectorAll('.fade-in');
 
+// Postavke za Intersection Observer API
 const appearOptions = {
-    threshold: 0.15, 
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.15,          // Element se smatra vidljivim kada je 15% njegovog sadržaja u ekranu
+    rootMargin: "0px 0px -50px 0px" // Animacija se okida 50px prije nego element u potpunosti uđe u vidno polje
 };
 
+/* AI DOKUMENTACIJA:
+   Konstrukciju i konfiguraciju IntersectionObserver-a sam implementirao/la uz pomoć Claude AI alata, 
+   jer je ovo napredna ugrađena JS funkcija za performanse koja mijenja stari 'scroll' event listener.
+   Razumijem da: 'IntersectionObserver' konstantno posmatra elemente. Kada element uđe u ekran ('entry.isIntersecting' postane true),
+   dodaje mu se CSS klasa 'visible' koja pokreće glatku tranziciju pojavljivanja. 
+   Funkcija 'appearOnScroll.unobserve(entry.target)' je ključna jer prestaje posmatrati element nakon što se jednom pojavi, 
+   što štedi memoriju pretraživača.
+*/
 const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
     entries.forEach(entry => {
         if (!entry.isIntersecting) {
-            return;
+            return; // Ako element nije u ekranu, ne radi ništa
         } else {
-            entry.target.classList.add('visible');
-            appearOnScroll.unobserve(entry.target); 
+            entry.target.classList.add('visible'); // Dodajemo klasu za pokretanje CSS animacije
+            appearOnScroll.unobserve(entry.target); // Isključujemo dalje posmatranje tog elementa
         }
     });
 }, appearOptions);
 
+// Aktivacija posmatranja za svaki pojedinačni element sa klasom 'fade-in'
 faders.forEach(fader => {
     appearOnScroll.observe(fader);
 });
