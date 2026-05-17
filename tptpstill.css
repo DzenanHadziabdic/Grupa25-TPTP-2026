@@ -597,26 +597,7 @@ textarea {
     flex-wrap: wrap;
 }
 
-.btn-primary {
-    display: inline-block;
-    background: var(--boja-akcent);
-    color: #fff;
-    font-family: var(--font-naslov);
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.75rem 1.75rem;
-    border-radius: var(--radijus);
-    transition: transform var(--tranzicija), box-shadow var(--tranzicija);
-    box-shadow: 0 4px 16px rgba(47, 184, 98, 0.35);
-    border: none;
-    cursor: pointer;
-}
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(47, 184, 98, 0.5);
-    color: #fff;
-}
 
 .btn-outline {
     display: inline-block;
@@ -1015,20 +996,8 @@ tr:nth-child(even) td {
     color: var(--boja-akcent);
 }
 
-/*Dugme skoci na vrh*/
-.back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--boja-primarna);
-    color: #fff;
-    padding: 0.6rem 1rem;
-    border-radius: var(--radijus);
-    text-decoration: none;
-    font-weight: bold;
-    z-index: 100;
-    box-shadow: var(--sjena);
-}
+
+
 
 
 
@@ -1167,7 +1136,7 @@ tr:nth-child(even) td {
 }
 
 
-/* jos funk
+
 /* ===========================================
    NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
    =========================================== */
@@ -1207,6 +1176,7 @@ tr:nth-child(even) td {
     display: block;
     transition: transform 0.4s ease;
 }
+
 
 .gallery-grid figure:hover img {
     transform: scale(1.05);
@@ -1310,126 +1280,13 @@ tr:nth-child(even) td {
    NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
    =========================================== */
 
-/* --- Progress Bar za čitanje na vrhu --- */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--boja-akcent), #12e2a3);
-    z-index: 9999;
-    transition: width 0.1s ease;
-}
+
 
 /* --- Popravak Galerije (Centriranje i iste proporcije slika) --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--razmak-l);
-}
 
-.gallery-grid figure {
-    margin: 0;
-    text-align: center;
-    background: var(--boja-kartica);
-    border-radius: var(--radijus);
-    overflow: hidden;
-    box-shadow: var(--sjena);
-}
 
-.gallery-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
 
-.gallery-grid figure:hover img {
-    transform: scale(1.05);
-}
 
-/* --- Dugme 'Saznaj više' --- */
-.btn-more {
-    background: var(--boja-akcent);
-    color: #fff;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    margin-top: 1rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-more:hover {
-    background: #259650;
-    transform: translateY(-2px);
-}
-
-/* --- MODAL (Iskakući prozor) --- */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.modal.show {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-content {
-    background-color: var(--boja-pozadina);
-    padding: 2rem;
-    border-radius: var(--radijus);
-    max-width: 600px;
-    width: 90%;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    transform: translateY(-30px);
-    transition: transform 0.3s ease;
-}
-
-.modal.show .modal-content {
-    transform: translateY(0);
-}
-
-.modal-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: var(--radijus);
-    margin: 1rem 0;
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    color: var(--boja-tekst);
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-modal:hover {
-    color: var(--boja-akcent);
-}
 
 /* --- Fade-In Animacija za skrolanje --- */
 .fade-in {
@@ -1532,6 +1389,13 @@ area.map-trigger {
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
     z-index: 999;
     /* Da uvijek bude iznad ostalog sadržaja */
+    background: var(--boja-primarna);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radijus);
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: var(--sjena);
 }
 
 /* Ovu klasu Java dodaje tek kad korisnik skrola dolje */
