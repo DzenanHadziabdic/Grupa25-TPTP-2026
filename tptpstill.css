@@ -186,7 +186,12 @@ footer {
 
     .side-nav {
         grid-column: 1;
+<<<<<<< HEAD
         position: static!important;
+=======
+        position: static;
+
+>>>>>>> 265573830281355deb464c02dbee1ca9b145ab98
     }
 
     main {
@@ -915,116 +920,146 @@ textarea {
 
 /* Bookmark navigacija na vrhu stranice sadržaj.html */
 .bookmark-nav {
-  background: var(--boja-kartica);
-  border-bottom: 2px solid var(--boja-border);
-  padding: 0.75rem var(--razmak-l);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--razmak-m);
-  position: sticky;
-  top: 70px; /* Prilagoditi visini headera */
-  z-index: 50;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background: var(--boja-kartica);
+    border-bottom: 2px solid var(--boja-border);
+    padding: 0.75rem var(--razmak-l);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--razmak-m);
+    position: sticky;
+    top: 70px;
+    /* Prilagoditi visini headera */
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .bookmark-nav a {
-  font-family: var(--font-naslov);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--boja-primarna);
-  padding: 0.3rem 0.7rem;
-  border-radius: var(--radijus);
-  border: 1px solid var(--boja-border);
-  transition: all var(--tranzicija);
+    font-family: var(--font-naslov);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--boja-primarna);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radijus);
+    border: 1px solid var(--boja-border);
+    transition: all var(--tranzicija);
 }
 
 .bookmark-nav a:hover {
-  background: var(--boja-primarna);
-  color: #fff;
+    background: var(--boja-primarna);
+    color: #fff;
 }
+
 /* Mapa slike (image map) i info blokovi */
-.image-map-wrap { margin-bottom: var(--razmak-l); }
+.image-map-wrap {
+    margin-bottom: var(--razmak-l);
+}
 
 .map-info {
-  display: none; /* Sakriveno dok se ne klikne (target) */
-  background: var(--boja-kartica);
-  border-left: 4px solid var(--boja-akcent);
-  padding: var(--razmak-m);
-  margin-top: 0.5rem;
-  border-radius: 0 var(--radijus) var(--radijus) 0;
-  font-size: 0.9rem;
-  animation: fadeIn 0.3s ease;
+    display: none;
+    /* Sakriveno dok se ne klikne (target) */
+    background: var(--boja-kartica);
+    border-left: 4px solid var(--boja-akcent);
+    padding: var(--razmak-m);
+    margin-top: 0.5rem;
+    border-radius: 0 var(--radijus) var(--radijus) 0;
+    font-size: 0.9rem;
+    animation: fadeIn 0.3s ease;
 }
 
-.map-info:target { 
-  display: block; /* Prikazuje se kada URL završi sa #solar-info npr. */
+.map-info:target {
+    display: block;
+    /* Prikazuje se kada URL završi sa #solar-info npr. */
 }
+
 /* Stilovi za tabelu */
 .table-wrap {
-  overflow-x: auto; /* Omogućava scroll na mobitelima */
-  border-radius: var(--radijus);
-  box-shadow: var(--sjena);
-  margin-top: var(--razmak-m);
+    overflow-x: auto;
+    /* Omogućava scroll na mobitelima */
+    border-radius: var(--radijus);
+    box-shadow: var(--sjena);
+    margin-top: var(--razmak-m);
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--boja-kartica);
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--boja-kartica);
 }
 
-thead tr { background: var(--boja-primarna); color: #fff; }
+thead tr {
+    background: var(--boja-primarna);
+    color: #fff;
+}
 
-th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--boja-border); }
+th,
+td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--boja-border);
+}
 
-tr:nth-child(even) td { background: rgba(47,184,98,0.04); }
+tr:nth-child(even) td {
+    background: rgba(47, 184, 98, 0.04);
+}
 
 /* Statusni bedževi unutar tabele */
 .status {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.2rem 0.6rem;
-  border-radius: 20px;
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
 }
-.status.aktivan { background: rgba(47,184,98,0.15); color: #1a5c38; }
-.status.ceka    { background: rgba(255,193,7,0.15);  color: #856404; }
-.status.zatvoren { background: rgba(220,53,69,0.1); color: #842029; }
+
+.status.aktivan {
+    background: rgba(47, 184, 98, 0.15);
+    color: #1a5c38;
+}
+
+.status.ceka {
+    background: rgba(255, 193, 7, 0.15);
+    color: #856404;
+}
+
+.status.zatvoren {
+    background: rgba(220, 53, 69, 0.1);
+    color: #842029;
+}
 
 /*(Ugniježdena)lista kategorije*/
-.nested-list > li {
-  font-family: var(--font-naslov);
-  font-weight: 700;
-  color: var(--boja-primarna);
-  margin-bottom: var(--razmak-m);
-  list-style: none;
-  position: relative;
+.nested-list>li {
+    font-family: var(--font-naslov);
+    font-weight: 700;
+    color: var(--boja-primarna);
+    margin-bottom: var(--razmak-m);
+    list-style: none;
+    position: relative;
 }
 
 .nested-list ul {
-  padding-left: var(--razmak-m);
-  list-style: none;
+    padding-left: var(--razmak-m);
+    list-style: none;
 }
 
 .nested-list ul li::before {
-  content: '–';
-  margin-right: 8px;
-  color: var(--boja-akcent);
+    content: '–';
+    margin-right: 8px;
+    color: var(--boja-akcent);
 }
 
 /*Dugme skoci na vrh*/
 .back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--boja-primarna);
-  color: #fff;
-  padding: 0.6rem 1rem;
-  border-radius: var(--radijus);
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 100;
-  box-shadow: var(--sjena);
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--boja-primarna);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radijus);
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 100;
+    box-shadow: var(--sjena);
 }
 
 /* ==========================================================================
@@ -1064,7 +1099,9 @@ body.dark {
 }
 
 /* Reset osnova */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -1072,17 +1109,12 @@ body.dark {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Da header ne prekrije naslov pri skoku */
+    scroll-padding-top: 80px;
+    /* Da header ne prekrije naslov pri skoku */
 }
 
-body {
-    font-family: var(--font-tijelo);
-    background-color: var(--boja-pozadina);
-    color: var(--boja-tekst);
-    line-height:
 
-
-    /* ===========================================
+/* ===========================================
    NOVI STILOVI - KARTICE TEHNOLOGIJA I FAQ
    =========================================== */
 
@@ -1107,7 +1139,8 @@ body {
 }
 
 .tech-card:hover {
-    transform: translateY(-8px); /* Podizanje kartice */
+    transform: translateY(-8px);
+    /* Podizanje kartice */
     box-shadow: 0 12px 30px rgba(47, 184, 98, 0.15);
     border-color: var(--boja-akcent);
 }
@@ -1120,7 +1153,8 @@ body {
 }
 
 .tech-card:hover .tech-icon {
-    transform: scale(1.1) rotate(5deg); /* Efekat ikone */
+    transform: scale(1.1) rotate(5deg);
+    /* Efekat ikone */
 }
 
 .tech-card h3 {
@@ -1147,8 +1181,9 @@ body {
     margin-bottom: var(--razmak-m);
     border: 1px solid var(--boja-border);
     border-radius: var(--radijus);
-    overflow: hidden; /* Ne dozvoljava tekstu da viri dok je zatvoreno */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    overflow: hidden;
+    /* Ne dozvoljava tekstu da viri dok je zatvoreno */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .faq-question {
@@ -1180,7 +1215,8 @@ body {
 }
 
 .faq-answer {
-    max-height: 0; /* Sakriva tekst po defaultu */
+    max-height: 0;
+    /* Sakriva tekst po defaultu */
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
     padding: 0 1.5rem;
@@ -1199,12 +1235,14 @@ body {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 400px; /* Dovoljno prostora da se tekst otvori */
+    max-height: 400px;
+    /* Dovoljno prostora da se tekst otvori */
     padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg); /* Pretvara plus u X */
+    transform: rotate(45deg);
+    /* Pretvara plus u X */
 }
 
 
@@ -1302,7 +1340,7 @@ body {
     max-height: 85vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     transform: translateY(-30px);
     transition: transform 0.3s ease;
 }
@@ -1346,7 +1384,7 @@ body {
     transform: translateY(0);
 }
 
-/
+
 /* ===========================================
    NOVE FUNKCIJE: MODALI, PROGRESS BAR, ANIMACIJE I GALERIJA
    =========================================== */
@@ -1440,7 +1478,7 @@ body {
     max-height: 85vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     transform: translateY(-30px);
     transition: transform 0.3s ease;
 }
@@ -1491,17 +1529,22 @@ body {
 /* Kontejner koji drži blokove paralelno */
 .interactive-maps-container {
     display: flex;
-    flex-wrap: wrap; /* Da se prebace jedno ispod drugog na mobitelu */
+    flex-wrap: wrap;
+    /* Da se prebace jedno ispod drugog na mobitelu */
     gap: var(--razmak-l);
     margin-top: var(--razmak-l);
-    justify-content: center; /* Centrira blokove ako su manji */
+    justify-content: center;
+    /* Centrira blokove ako su manji */
 }
 
 /* Pojedinačni blok sa slikom i naslovom */
 .map-block {
-    flex: 1; /* Uzimaju jednaku širinu */
-    min-width: 280px; /* Minimalna širina prije prebacivanja u novi red */
-    max-width: 500px; /* Da ne postanu preveliki na ogromnim ekranima */
+    flex: 1;
+    /* Uzimaju jednaku širinu */
+    min-width: 280px;
+    /* Minimalna širina prije prebacivanja u novi red */
+    max-width: 500px;
+    /* Da ne postanu preveliki na ogromnim ekranima */
     background: var(--boja-kartica);
     border: 1px solid var(--boja-border);
     border-radius: var(--radijus);
@@ -1512,8 +1555,9 @@ body {
 }
 
 .map-block:hover {
-    transform: translateY(-5px); /* Blago podizanje na hover */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    /* Blago podizanje na hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .map-block h3 {
@@ -1525,7 +1569,8 @@ body {
 
 /* Stil za samu sliku unutar bloka */
 .map-image {
-    width: 100%; /* Prilagođava se širini bloka */
+    width: 100%;
+    /* Prilagođava se širini bloka */
     height: auto;
     border-radius: 4px;
     display: block;
@@ -1534,7 +1579,8 @@ body {
 /* Ključno: Čini da se na mapi slike pojavljuje 'ruka' za klik */
 area.map-trigger {
     cursor: pointer;
-    outline: none; /* Skriva ružni narandžasti okvir u nekim browserima */
+    outline: none;
+    /* Skriva ružni narandžasti okvir u nekim browserima */
 }
 
 /* ===========================================
@@ -1543,9 +1589,12 @@ area.map-trigger {
 
 /* 1. Sužavanje glavnog sadržaja (da ne ide od ruba do ruba) */
 .sadrzaj-main {
-    max-width: 1100px; /* Ograničava maksimalnu širinu. Ako želiš još uže, stavi npr. 900px */
-    margin: 0 auto; /* Centrira cijeli sadržaj na sredinu ekrana */
-    padding: 0 var(--razmak-m); /* Osigurava da na mobitelu ne dodiruje ivice ekrana */
+    max-width: 1100px;
+    /* Ograničava maksimalnu širinu. Ako želiš još uže, stavi npr. 900px */
+    margin: 0 auto;
+    /* Centrira cijeli sadržaj na sredinu ekrana */
+    padding: 0 var(--razmak-m);
+    /* Osigurava da na mobitelu ne dodiruje ivice ekrana */
 }
 
 /* 2. Dugme Skoči na vrh (skriveno na vrhu, pojavljuje se na skrol) */
@@ -1553,16 +1602,22 @@ area.map-trigger {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    opacity: 0; /* Potpuno nevidljivo na početku */
-    visibility: hidden; /* Browser ga ignoriše dok je nevidljivo */
-    transform: translateY(20px); /* Spušteno malo dolje za animaciju */
+    opacity: 0;
+    /* Potpuno nevidljivo na početku */
+    visibility: hidden;
+    /* Browser ga ignoriše dok je nevidljivo */
+    transform: translateY(20px);
+    /* Spušteno malo dolje za animaciju */
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
-    z-index: 999; /* Da uvijek bude iznad ostalog sadržaja */
+    z-index: 999;
+    /* Da uvijek bude iznad ostalog sadržaja */
 }
 
 /* Ovu klasu Java dodaje tek kad korisnik skrola dolje */
 .back-to-top.visible {
-    opacity: 1; /* Postaje vidljivo */
+    opacity: 1;
+    /* Postaje vidljivo */
     visibility: visible;
-    transform: translateY(0); /* Vraća se na svoju normalnu poziciju */
+    transform: translateY(0);
+    /* Vraća se na svoju normalnu poziciju */
 }
